@@ -12,11 +12,12 @@
 
     /* full-bleed image */
     .hero-image {
+      display: block;
       width: 100%;
+      min-width: 100%;
       height: 480px;
       object-fit: cover;
       object-position: center;
-      display: block;
       background: var(--ink);
     }
 
@@ -92,7 +93,9 @@
 </section>
 
 <!-- HERO IMAGE -->
-<img src="assets/images/about-1.jpg" alt="Samir Deolikar" class="hero-image" loading="eager">
+<div style="width:100%; overflow:hidden; background: var(--ink); line-height:0;">
+  <img src="assets/images/about-1.jpg" alt="Samir Deolikar" class="hero-image" loading="eager">
+</div>
 
 <!-- JOURNEY -->
 <section class="section">
