@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CEO Rule: Empowering Clear Decisions at Every Level — Samir Deolikar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #ffffff;
+    --cream: #f2f2f2;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --rust: #8b3a2a;
+    --slate: #444444;
+    --muted: #6b6b6b;
+    --rule: #dedede;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); font-size: 17px; line-height: 1.75; }
+
+  .masthead { background: var(--ink); color: var(--paper); padding: 12px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
+  .masthead-brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.6; }
+  .masthead-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.05em; }
+  .masthead-nav { display: flex; align-items: center; gap: 20px; }
+  .masthead-nav a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.15s; }
+  .masthead-nav a:hover { color: var(--gold-light); }
+  .masthead-nav a.primary { color: var(--gold-light); border: 1px solid rgba(184,134,11,0.4); padding: 4px 12px; }
+  .masthead-nav a.primary:hover { border-color: var(--gold-light); color: var(--paper); }
+
+  .hero { background: var(--ink); color: var(--paper); padding: 80px 48px 90px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; border: 1px solid rgba(184,134,11,0.15); border-radius: 50%; pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -80px; left: 20%; width: 280px; height: 280px; border: 1px solid rgba(184,134,11,0.08); border-radius: 50%; pointer-events: none; }
+  .hero-inner { max-width: 800px; position: relative; z-index: 1; }
+  .hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #ffffff; background: var(--rust); display: inline-flex; align-items: center; gap: 12px; padding: 4px 12px; margin-bottom: 28px; }
+  .hero-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: rgba(255,255,255,0.5); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 32px; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-meta { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .hero-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--ink); flex-shrink: 0; }
+  .author-info-name { font-weight: 500; font-size: 14px; }
+  .author-info-title { font-size: 12px; opacity: 0.5; }
+  .hero-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.2); }
+  .hero-date { font-family: 'DM Mono', monospace; font-size: 11px; opacity: 0.45; letter-spacing: 0.1em; }
+
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 64px 48px; }
+
+  .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff; background: var(--rust); display: inline-block; padding: 4px 10px; margin-bottom: 20px; }
+
+  .prose p { margin-bottom: 24px; color: var(--ink); font-size: 17px; line-height: 1.8; }
+  .prose h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin: 48px 0 16px; color: var(--ink); }
+  .prose h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin: 36px 0 12px; color: var(--ink); }
+  .prose strong { font-weight: 500; }
+
+  .ceo-framework { margin: 40px 0; display: flex; flex-direction: column; gap: 16px; }
+  .ceo-card { display: grid; grid-template-columns: 64px 1fr; gap: 0; border-radius: 4px; overflow: hidden; }
+  .ceo-letter { background: var(--ink); color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .ceo-body { background: var(--cream); padding: 20px 24px; border-left: 3px solid var(--gold); }
+  .ceo-body strong { display: block; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .ceo-body p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+  .callout { background: var(--ink); color: var(--paper); padding: 32px 40px; margin: 40px 0; border-radius: 4px; }
+  .callout p { font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic; line-height: 1.5; color: var(--paper); margin: 0; }
+  .callout p em { color: var(--gold-light); font-style: normal; }
+
+  .closing-section { background: var(--ink); color: var(--paper); padding: 64px 48px; text-align: center; }
+  .closing-quote { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 30px); font-style: italic; max-width: 680px; margin: 0 auto 24px; line-height: 1.5; }
+  .closing-quote em { color: var(--gold-light); font-style: normal; }
+  .closing-rule { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 24px; }
+  .closing-author { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; opacity: 0.5; }
+
+
+
+  footer { background: #080808; color: rgba(255,255,255,0.3); text-align: center; padding: 24px 48px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-inner > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-label { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.15s; }
+  .hero-meta { animation-delay: 0.25s; }
+
+  @media (max-width: 768px) {
+    .masthead { padding: 12px 20px; }
+    .hero { padding: 52px 20px 64px; }
+    .page-wrap { padding: 40px 20px; }
+    .callout { padding: 24px; }
+    .closing-section { padding: 48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="masthead-brand">Point of View · Leadership</span>
+  <span class="masthead-name">Samir Deolikar</span>
+  <nav class="masthead-nav">
+    <a href="../index.html">Blog Home</a>
+    <a href="https://samirdeolikar.com" class="primary" target="_blank">samirdeolikar.com</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Leadership Frameworks</div>
+    <h1>The CEO Rule:<br><em>Empowering Clear Decisions</em><br>at Every Level</h1>
+    <div class="hero-meta">
+      <div class="hero-author">
+        <div class="author-avatar">SD</div>
+        <div>
+          <div class="author-info-name">Samir Deolikar</div>
+          <div class="author-info-title">20+ Years in IT Services Leadership</div>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-date">2025</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="prose">
+    <p>When an organization grows, it doesn't just add people. It adds complexity. For a while, everything moves fast. Decisions are sharp, ownership is high, and alignment feels almost instinctive. But as teams grow and structures formalize, something starts to shift. Decisions slow down. People wait. Not because they don't care, but because they're not sure if they can take the call.</p>
+
+    <p>I noticed this during a phase of rapid growth. Revenue was up, teams were expanding, and on paper, everything looked great. But the pace of decision-making had softened. Bottlenecks were forming in places that once moved freely. That bothered me, because it wasn't a lack of intent. It was a lack of clarity.</p>
+
+    <p>It made me pause and ask myself: How was I able to take decisions over the years without second-guessing? What were the principles I was unconsciously leaning on?</p>
+
+    <p>That reflection led to what I now call the CEO Rule, a simple framework that helps anyone in the organization take the right call, even in uncertain situations.</p>
+  </div>
+
+  <div class="section-eyebrow" style="margin-top: 48px;">The Framework</div>
+  <div class="ceo-framework">
+    <div class="ceo-card">
+      <div class="ceo-letter">C</div>
+      <div class="ceo-body">
+        <strong>Culture</strong>
+        <p>Are we creating genuine value for our customers and stakeholders?</p>
+      </div>
+    </div>
+    <div class="ceo-card">
+      <div class="ceo-letter">E</div>
+      <div class="ceo-body">
+        <strong>Ethics</strong>
+        <p>Are we staying true to our values and integrity, even when no one's watching?</p>
+      </div>
+    </div>
+    <div class="ceo-card">
+      <div class="ceo-letter">O</div>
+      <div class="ceo-body">
+        <strong>Organizational Benefit</strong>
+        <p>Does this action move the company forward in the long run?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>If the answer is yes to all three, take the decision. You don't need a manager's sign-off. You have the clarity and the mandate to lead.</p>
+
+    <p>What I didn't expect was how empowering this turned out to be. It gave people a clear lens to operate through, not just rules, but trust. It encouraged ownership. And more importantly, it made people feel safe. Safe to act, safe to speak up, and safe knowing that the organization had their back when the intent was right.</p>
+
+    <p>In fast-moving environments, consistency can't come from approvals. It has to come from principles.</p>
+  </div>
+
+  <div class="callout">
+    <p>In a scaling organization, the real edge isn't just in speed. It's in <em>empowered decisions</em> made at every level.</p>
+  </div>
+</div>
+
+<div class="closing-section">
+  <div class="closing-rule"></div>
+  <div class="closing-quote">When the intent is right and the framework is clear, <em>every person becomes a decision-maker.</em></div>
+  <div class="closing-rule"></div>
+  <div class="closing-author">Samir Deolikar · San Francisco Bay Area</div>
+</div>
+
+<footer>© 2025 Samir Deolikar · Point of View Series · Leadership in the AI Era</footer>
+
+<script>
+  document.querySelectorAll('.ceo-card, .callout').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, i * 80); obs.unobserve(el); } });
+    }, { threshold: 0.1 });
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
