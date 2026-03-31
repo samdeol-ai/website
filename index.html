@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samir Deolikar — Wired for Why</title>
+  <meta name="description" content="Samir Deolikar — Technology, teams, and transformation. Curious leader, creative thinker, thoughtful writer.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* ── PAGE-SPECIFIC ── */
+    .hero-home { min-height: 92vh; display: flex; align-items: center; }
+    .hero-home h1 { max-width: 820px; }
+    .hero-home h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-tagline {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-tagline::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+    .hero-sub { max-width: 520px; margin-top: 28px; font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .hero-cta { margin-top: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+    /* intro split */
+    .intro-split { display: grid; grid-template-columns: 1fr 1fr; }
+    .intro-image { overflow: hidden; }
+    .intro-image img { width: 100%; height: 100%; object-fit: cover; min-height: 480px; transition: transform 0.6s ease; }
+    .intro-image:hover img { transform: scale(1.03); }
+    .intro-text { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .intro-text h2 { margin-bottom: 20px; }
+    .intro-text p { margin-bottom: 16px; }
+    .intro-text .btn { margin-top: 28px; align-self: flex-start; }
+
+    /* themes strip */
+    .themes-strip { padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .themes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--rule); margin-top: 40px; }
+    .theme-item { background: var(--paper); padding: 28px 24px; transition: background 0.15s; cursor: default; }
+    .theme-item:hover { background: var(--surface); }
+    .theme-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--rule); line-height: 1; margin-bottom: 12px; }
+    .theme-item h4 { font-size: 15px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 0; }
+
+    /* creativity preview */
+    .creativity-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+    .creativity-panel { position: relative; overflow: hidden; }
+    .creativity-panel img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; transition: transform 0.6s ease; }
+    .creativity-panel:hover img { transform: scale(1.04); }
+    .creativity-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 36px;
+    }
+    .creativity-overlay h3 { color: var(--paper); margin-bottom: 6px; }
+    .creativity-overlay p { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
+
+    /* writing preview */
+    .writing-list { display: flex; flex-direction: column; }
+    .writing-item {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 0.5px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.12s;
+    }
+    .writing-item:hover { background: var(--surface); padding-left: 12px; padding-right: 12px; margin: 0 -12px; }
+    .writing-item:first-child { border-top: 0.5px solid var(--rule); }
+    .writing-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--rule); }
+    .writing-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.3; }
+    .writing-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .writing-arrow { color: var(--rule); font-size: 20px; transition: color 0.15s, transform 0.15s; }
+    .writing-item:hover .writing-arrow { color: var(--gold); transform: translateX(4px); }
+
+    /* books */
+    .book-item { padding: 20px 0; border-bottom: 0.5px solid var(--rule); }
+    .book-item:last-child { border-bottom: none; }
+    .book-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); }
+    .book-author { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    @media (max-width: 900px) {
+      .intro-split { grid-template-columns: 1fr; }
+      .intro-text { padding: 40px 24px; }
+      .themes-grid { grid-template-columns: 1fr 1fr; }
+      .creativity-grid { grid-template-columns: 1fr; }
+      .writing-item { grid-template-columns: 40px 1fr auto; gap: 16px; }
+      .hero-home { min-height: 80vh; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="thinking.html">Thinking</a></li>
+    <li><a href="creativity.html">Creativity</a></li>
+    <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="thinking.html">Thinking</a>
+  <a href="creativity.html">Creativity</a>
+  <a href="contact.html">Get in touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero hero-home">
+  <div class="container hero-inner">
+    <div class="hero-tagline animate-1">Wired for Why</div>
+    <h1 class="animate-2">
+      Technology,<br>
+      teams, and<br>
+      <em>transformation.</em>
+    </h1>
+    <p class="hero-sub animate-3">
+      Welcome. I'm Samir, someone who's spent a few decades walking the path between technology, teams, and transformation. I care about the kind of work that lasts, the kind of conversations that move people forward, and the kind of leadership that stays human.
+    </p>
+    <div class="hero-cta animate-4">
+      <a href="thinking.html" class="btn btn--gold">Read my writing</a>
+      <a href="about.html" class="btn btn--white">My journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO SPLIT -->
+<div class="intro-split reveal">
+  <div class="intro-image">
+    <img src="https://samirdeolikar.com/assets/images/image16.jpg" alt="Samir Deolikar" loading="lazy">
+  </div>
+  <div class="intro-text">
+    <span class="eyebrow">A Journey in Progress</span>
+    <h2>Shaped more by questions than answers</h2>
+    <p>I didn't set out with a fixed plan. What I had was curiosity, a strong work ethic, and the good fortune of being around people who gave me room to grow.</p>
+    <p>From early days solving technical problems in server rooms to leading global teams across continents, my path has been defined by asking better questions, not finding easier answers.</p>
+    <a href="about.html" class="btn btn--ink">More about me</a>
+  </div>
+</div>
+
+<!-- THEMES STRIP -->
+<section class="themes-strip reveal">
+  <div class="container">
+    <span class="eyebrow">Topics I Think About</span>
+    <div class="themes-grid">
+      <div class="theme-item">
+        <div class="theme-num">01</div>
+        <h4>Leadership in Uncertain Times</h4>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">02</div>
+        <h4>Building Cultures That Help Scale</h4>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">03</div>
+        <h4>Getting It Right vs. Failing Fast</h4>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">04</div>
+        <h4>Consistent Value Creation</h4>
+      </div>
+      <div class="theme-item">
+        <div class="theme-num">05</div>
+        <h4>The Kind of People Who Make Teams Work</h4>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <a href="thinking.html" class="btn btn--ink">Explore all thinking</a>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVITY PREVIEW -->
+<section class="section--dark section reveal" style="padding-top: 0; padding-bottom: 0;">
+  <div class="container" style="padding-top: 72px; padding-bottom: 48px;">
+    <span class="eyebrow">Creativity Beyond Work</span>
+    <h2 style="max-width: 560px; margin-top: 8px;">Creativity sharpens how I lead, especially when the path isn't clear</h2>
+  </div>
+  <div class="creativity-grid">
+    <div class="creativity-panel">
+      <img src="https://samirdeolikar.com/assets/images/image20.jpg" alt="Theater" loading="lazy">
+      <div class="creativity-overlay">
+        <h3>Theater</h3>
+        <p>Writing, directing, and producing plays has taught me how to lead without having all the answers upfront.</p>
+      </div>
+    </div>
+    <div class="creativity-panel">
+      <img src="https://samirdeolikar.com/assets/images/image19.jpg" alt="Expression" loading="lazy">
+      <div class="creativity-overlay">
+        <h3>Expression</h3>
+        <p>Bringing large-scale cultural experiences to life has shaped how I think about storytelling and shared purpose.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top: 40px; padding-bottom: 72px;">
+    <a href="creativity.html" class="btn btn--gold">Explore creativity</a>
+  </div>
+</section>
+
+<!-- WRITING PREVIEW -->
+<section class="section reveal">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; border-bottom: 1px solid var(--rule); padding-bottom: 20px;">
+      <div>
+        <span class="eyebrow">Latest Writing</span>
+        <h2 style="margin-top: 8px;">Point of View</h2>
+      </div>
+      <a href="thinking.html" class="btn btn--ink" style="align-self: flex-end;">All articles</a>
+    </div>
+
+    <div class="writing-list">
+      <a class="writing-item" href="thinking.html#growth-enabler">
+        <div class="writing-num">01</div>
+        <div>
+          <div class="writing-title">Growth Enabler for the President and CRO in the AI Era</div>
+          <div class="writing-desc">The missing role that connects and transforms all growth pillars in an AI-first services organization.</div>
+        </div>
+        <div class="writing-arrow">→</div>
+      </a>
+      <a class="writing-item" href="thinking.html#ceo-rule">
+        <div class="writing-num">02</div>
+        <div>
+          <div class="writing-title">The CEO Rule: Empowering Clear Decisions at Every Level</div>
+          <div class="writing-desc">A simple three-part framework that gives every person in the organization the clarity to act.</div>
+        </div>
+        <div class="writing-arrow">→</div>
+      </a>
+      <a class="writing-item" href="thinking.html#luck-framework">
+        <div class="writing-num">03</div>
+        <div>
+          <div class="writing-title">The Luck Framework: Aspiration, Hustle, and Willpower</div>
+          <div class="writing-desc">What people call luck is often three forces quietly working in alignment.</div>
+        </div>
+        <div class="writing-arrow">→</div>
+      </a>
+      <a class="writing-item" href="thinking.html#three-layers">
+        <div class="writing-num">04</div>
+        <div>
+          <div class="writing-title">The Three Layers of Growth: From Functional to Strategic Impact</div>
+          <div class="writing-desc">Why some people grow rapidly while others plateau, and the layered pattern behind it.</div>
+        </div>
+        <div class="writing-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="section--surface section reveal">
+  <div class="container grid-equal">
+    <div>
+      <span class="eyebrow">Books That Stayed With Me</span>
+      <h2 style="margin-top: 12px;">Ideas that shaped how I think, lead, and learn</h2>
+      <p style="margin-top: 20px;">I've read many books, but a few have stayed with me — not just for what they said, but for how they made me pause, reflect, and sometimes, rethink.</p>
+    </div>
+    <div style="padding-top: 8px;">
+      <div class="book-item">
+        <div class="book-title">The Goal</div>
+        <div class="book-author">Eliyahu M. Goldratt</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">Good to Great</div>
+        <div class="book-author">Jim Collins</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">The Hard Thing About Hard Things</div>
+        <div class="book-author">Ben Horowitz</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">The Magic of Thinking Big</div>
+        <div class="book-author">David J. Schwartz</div>
+      </div>
+      <div class="book-item">
+        <div class="book-title">Outliers</div>
+        <div class="book-author">Malcolm Gladwell</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="section--dark section reveal">
+  <div class="container" style="text-align: center; max-width: 640px; margin: 0 auto;">
+    <div class="rule--gold" style="margin: 0 auto 32px;"></div>
+    <h2>Conversations That Matter</h2>
+    <p style="margin: 20px auto; max-width: 480px;">If something here sparked a thought, a question, or just a quiet curiosity — I'd be glad to hear from you.</p>
+    <a href="contact.html" class="btn btn--gold" style="margin-top: 12px;">Get in touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+  <nav class="footer-links">
+    <a href="about.html">About</a>
+    <a href="thinking.html">Writing</a>
+    <a href="creativity.html">Creativity</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
+  </nav>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navMobile').classList.toggle('open');
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

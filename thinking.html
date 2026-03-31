@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thinking — Samir Deolikar</title>
+  <meta name="description" content="Frameworks, perspectives, and hard-won views on leadership, teams, and transformation.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* topics grid */
+    .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); margin-top: 48px; }
+    .topic-card { background: var(--paper); padding: 40px 36px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.15s; }
+    .topic-card:hover { border-left-color: var(--gold); background: var(--surface); }
+    .topic-card .num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--rule); line-height: 1; margin-bottom: 16px; }
+    .topic-card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.3; }
+    .topic-card p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+    /* articles */
+    .article-featured {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      margin-bottom: 2px;
+      transition: opacity 0.15s;
+    }
+    .article-featured:hover { opacity: 0.92; }
+    .af-content { padding: 56px; }
+    .af-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: #fff; background: var(--rust); display: inline-block; padding: 3px 10px; margin-bottom: 20px; }
+    .af-content h2 { color: var(--paper); font-size: clamp(22px, 3vw, 34px); line-height: 1.2; margin-bottom: 16px; }
+    .af-content p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; max-width: 420px; }
+    .af-meta { margin-top: 32px; padding-top: 20px; border-top: 0.5px solid rgba(255,255,255,0.1); }
+    .af-read { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+    .af-panel { border-left: 0.5px solid rgba(184,134,11,0.2); background: rgba(184,134,11,0.06); padding: 48px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .af-panel-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .af-theme { padding: 10px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06); font-size: 13px; color: rgba(255,255,255,0.6); display: flex; gap: 8px; line-height: 1.5; }
+    .af-theme::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .af-theme:first-of-type { border-top: 0.5px solid rgba(255,255,255,0.06); }
+
+    /* article list */
+    .article-row {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 0.5px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.12s;
+    }
+    .article-row:hover { background: var(--surface); padding-left: 16px; padding-right: 16px; margin: 0 -16px; }
+    .ar-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--rule); line-height: 1; }
+    .ar-category { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 6px; }
+    .ar-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 6px; }
+    .ar-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .ar-arrow { color: var(--rule); font-size: 22px; transition: color 0.15s, transform 0.15s; }
+    .article-row:hover .ar-arrow { color: var(--gold); transform: translateX(4px); }
+
+    /* POV label */
+    .pov-divider { display: flex; align-items: center; gap: 16px; margin: 64px 0 40px; }
+    .pov-divider h2 { white-space: nowrap; }
+    .pov-divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+    @media (max-width: 900px) {
+      .topics-grid { grid-template-columns: 1fr; }
+      .article-featured { grid-template-columns: 1fr; }
+      .af-panel { display: none; }
+      .af-content { padding: 36px 24px; }
+      .article-row { grid-template-columns: 48px 1fr auto; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="thinking.html" class="active">Thinking</a></li>
+    <li><a href="creativity.html">Creativity</a></li>
+    <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="thinking.html">Thinking</a>
+  <a href="creativity.html">Creativity</a>
+  <a href="contact.html">Get in touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow animate-1">Thinking</span>
+    <h1 class="animate-2" style="max-width: 700px;">The questions I<br>keep coming back to</h1>
+    <p class="animate-3">Frameworks, perspectives, and hard-won views on leadership, teams, and transformation — drawn from decades of doing the actual work.</p>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="section reveal">
+  <div class="container">
+    <span class="eyebrow">Topics I Think About</span>
+    <p style="max-width: 560px; margin-top: 12px; font-size: 16px;">These are themes I keep coming back to — sometimes in my work, sometimes in conversations, and often in quiet moments between the two.</p>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="num">01</div>
+        <h3>Leadership in Uncertain Times</h3>
+        <p>Leadership isn't about having all the answers. It's about helping others stay grounded when things feel unclear. What's the right time to experiment, and when do you hold steady? Scaling isn't just about speed. It's about sensing change early and adjusting with intent.</p>
+      </div>
+      <div class="topic-card">
+        <div class="num">02</div>
+        <h3>Building Cultures That Help Scale</h3>
+        <p>Complexity is inevitable as an organisation grows. The right culture functions like an operating system. It should accelerate decision-making, empower teams, and drive consistent outcomes. The real challenge isn't just building a great culture, but scaling it without losing what makes it work.</p>
+      </div>
+      <div class="topic-card">
+        <div class="num">03</div>
+        <h3>Getting It Right vs. Failing Fast</h3>
+        <p>When you're building something meaningful, should the focus be on getting it right the first time or moving fast enough to learn from failure? Maybe both matter. But the balance shifts depending on where you are and who you're building with.</p>
+      </div>
+      <div class="topic-card">
+        <div class="num">04</div>
+        <h3>Consistent Value Creation in Driving High Impact</h3>
+        <p>In fast-moving environments, big wins often come from doing the basics right again and again. The ability to deliver value consistently, not just occasionally, is what separates good teams from great ones and what truly drives transformation that lasts.</p>
+      </div>
+    </div>
+    <div class="topic-card" style="border: 2px solid var(--rule); margin-top: 2px;">
+      <div class="num">05</div>
+      <h3>The Kind of People Who Make Teams Work</h3>
+      <p>With the right intent, mindset, and curiosity, almost everything can be learned. Great teams aren't always built with the most experienced people. They're built with people who want to learn, who help each other grow, and who show up with the right energy, every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BREAK -->
+<img src="https://samirdeolikar.com/assets/images/image11.jpg" alt="" class="img-full" loading="lazy" style="display:block;">
+
+<!-- ARTICLES -->
+<section class="section reveal">
+  <div class="container">
+    <div class="pov-divider">
+      <span class="eyebrow">Point of View</span>
+      <h2>Written perspectives</h2>
+    </div>
+
+    <!-- Featured article -->
+    <a class="article-featured" href="pov/growth-enabler.html" id="growth-enabler">
+      <div class="af-content">
+        <div class="af-tag">Enterprise Leadership · AI Era</div>
+        <h2>Growth Enabler for the President and CRO in the AI Era</h2>
+        <p>IT services organizations have always relied on four pillars. AI is making that structure insufficient. This piece defines the missing role that connects and transforms all four into a growth engine.</p>
+        <div class="af-meta">
+          <span class="af-read">Read article →</span>
+        </div>
+      </div>
+      <div class="af-panel">
+        <div class="af-panel-label">Key themes</div>
+        <div class="af-theme">From relationship sales to proposition-led growth</div>
+        <div class="af-theme">Humans and agents as a delivery model</div>
+        <div class="af-theme">Outcome and IP-led pricing</div>
+        <div class="af-theme">Practices as market-facing thought leaders</div>
+        <div class="af-theme">Building the AI ecosystem early</div>
+      </div>
+    </a>
+
+    <!-- Article list -->
+    <div style="border-top: 0.5px solid var(--rule);">
+      <a class="article-row" href="pov/ceo-rule.html" id="ceo-rule">
+        <div class="ar-num">02</div>
+        <div>
+          <div class="ar-category">Leadership Frameworks</div>
+          <div class="ar-title">The CEO Rule: Empowering Clear Decisions at Every Level</div>
+          <div class="ar-desc">A simple three-part framework that helps anyone in the organization take the right call, even in uncertain situations.</div>
+        </div>
+        <div class="ar-arrow">→</div>
+      </a>
+
+      <a class="article-row" href="pov/luck-framework.html" id="luck-framework">
+        <div class="ar-num">03</div>
+        <div>
+          <div class="ar-category">Personal Philosophy</div>
+          <div class="ar-title">The Luck Framework: Aspiration, Hustle, and Willpower</div>
+          <div class="ar-desc">What people call luck is often three forces quietly working together. A pattern I've observed again and again.</div>
+        </div>
+        <div class="ar-arrow">→</div>
+      </a>
+
+      <a class="article-row" href="pov/three-layers-of-growth.html" id="three-layers">
+        <div class="ar-num">04</div>
+        <div>
+          <div class="ar-category">Professional Growth</div>
+          <div class="ar-title">The Three Layers of Growth: From Functional to Strategic Impact</div>
+          <div class="ar-desc">Why some people grow rapidly while others plateau, and the layered mindset that makes the difference.</div>
+        </div>
+        <div class="ar-arrow">→</div>
+      </a>
+
+      <div class="article-row" style="opacity: 0.4; cursor: default; pointer-events: none;">
+        <div class="ar-num">05</div>
+        <div>
+          <div class="ar-category">Coming Soon</div>
+          <div class="ar-title">More perspectives in progress</div>
+          <div class="ar-desc">New articles added as ideas are developed and substantiated.</div>
+        </div>
+        <div class="ar-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+  <nav class="footer-links">
+    <a href="about.html">About</a>
+    <a href="thinking.html">Writing</a>
+    <a href="creativity.html">Creativity</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
+  </nav>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

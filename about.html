@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Samir Deolikar</title>
+  <meta name="description" content="A journey shaped by curiosity, people, and purpose. Learn about Samir Deolikar.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .hero-about h1 em { color: var(--gold-light); font-style: italic; }
+
+    /* full-bleed image */
+    .hero-image { width: 100%; aspect-ratio: 21/8; object-fit: cover; display: block; }
+
+    /* journey section */
+    .journey-body { padding: 80px 0; }
+    .journey-body p { font-size: 18px; line-height: 1.85; margin-bottom: 24px; color: var(--muted); }
+    .journey-body p strong { color: var(--ink); }
+
+    /* questions */
+    .questions { display: flex; flex-direction: column; gap: 1px; background: var(--rule); margin: 48px 0; }
+    .question {
+      background: var(--paper);
+      padding: 24px 32px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--muted);
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .question:hover { border-left-color: var(--gold); background: var(--surface); color: var(--ink); }
+
+    /* pillars */
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin: 48px 0; }
+    .pillar { background: var(--paper); padding: 40px 32px; }
+    .pillar-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 12px; }
+    .pillar h3 { font-size: 22px; margin-bottom: 12px; }
+    .pillar p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+    /* image row */
+    .image-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+    .image-row img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .image-row div { overflow: hidden; }
+    .image-row div:hover img { transform: scale(1.04); }
+
+    @media (max-width: 900px) {
+      .pillars { grid-template-columns: 1fr; }
+      .image-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="thinking.html">Thinking</a></li>
+    <li><a href="creativity.html">Creativity</a></li>
+    <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="thinking.html">Thinking</a>
+  <a href="creativity.html">Creativity</a>
+  <a href="contact.html">Get in touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero hero-about">
+  <div class="container hero-inner">
+    <span class="eyebrow animate-1">A Journey in Progress</span>
+    <h1 class="animate-2">Shaped more by<br><em>questions</em><br>than answers</h1>
+    <p class="animate-3">I didn't set out with a fixed plan. What I had was curiosity, a strong work ethic, and the good fortune of being around people who gave me room to grow.</p>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<img src="https://samirdeolikar.com/assets/images/image04.jpg" alt="Samir Deolikar" class="hero-image" loading="lazy">
+
+<!-- JOURNEY -->
+<section class="section">
+  <div class="container--narrow journey-body reveal">
+    <p>From early days solving technical problems in server rooms to leading global teams across continents, my path has been shaped more by questions than answers.</p>
+
+    <div class="questions">
+      <div class="question">"What does it take to scale while keeping culture essentials intact?"</div>
+      <div class="question">"How do you create value for all stakeholders and be truly transformative?"</div>
+      <div class="question">"What does it really take to lead through change?"</div>
+    </div>
+
+    <p>Over time, I've worked with enterprises navigating digital transformation, with startups turning ideas into reality, and with teams trying to find clarity amid complexity. Each phase has been different. What's remained constant is a deep respect for <strong>people, process, and purpose.</strong></p>
+    <p>I don't see this as a résumé. It's a reminder that careers, like people, are shaped more by learning than by titles.</p>
+  </div>
+</section>
+
+<!-- IMAGE ROW -->
+<div class="image-row reveal">
+  <div><img src="https://samirdeolikar.com/assets/images/image13.jpg" alt="" loading="lazy"></div>
+  <div><img src="https://samirdeolikar.com/assets/images/image05.jpg" alt="" loading="lazy"></div>
+  <div><img src="https://samirdeolikar.com/assets/images/image14.jpg" alt="" loading="lazy"></div>
+</div>
+
+<!-- PILLARS -->
+<section class="section--surface section reveal">
+  <div class="container">
+    <span class="eyebrow">What Has Remained Constant</span>
+    <div class="pillars" style="margin-top: 32px;">
+      <div class="pillar">
+        <div class="pillar-num">01 · People</div>
+        <h3>People First</h3>
+        <p>Every organization is a collection of people with goals, fears, and potential. Leading well starts with seeing that clearly.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02 · Process</div>
+        <h3>Process as Infrastructure</h3>
+        <p>The right processes don't slow things down. They create the conditions for speed, quality, and trust to coexist.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03 · Purpose</div>
+        <h3>Purpose as Compass</h3>
+        <p>When things are uncertain, purpose is what keeps a team moving in the right direction without needing constant direction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALLOUT -->
+<div class="callout-box reveal" style="margin: 0;">
+  <div class="container--narrow">
+    <p>Careers, like people, are shaped more by <em>learning</em> than by titles.</p>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<section class="section reveal">
+  <div class="container grid-equal">
+    <div>
+      <span class="eyebrow">Topics I Think About</span>
+      <h2 style="margin-top: 12px;">These are themes I keep coming back to</h2>
+      <p style="margin-top: 20px;">Sometimes in my work, sometimes in conversations, and often in quiet moments between the two.</p>
+      <a href="thinking.html" class="btn btn--ink" style="margin-top: 28px;">Read my thinking</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1px; background: var(--rule);">
+      <div style="background: var(--paper); padding: 20px 24px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 6px;">01</div>
+        <div style="font-size: 16px; font-weight: 500; color: var(--ink);">Leadership in Uncertain Times</div>
+      </div>
+      <div style="background: var(--paper); padding: 20px 24px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 6px;">02</div>
+        <div style="font-size: 16px; font-weight: 500; color: var(--ink);">Building Cultures That Help Scale</div>
+      </div>
+      <div style="background: var(--paper); padding: 20px 24px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 6px;">03</div>
+        <div style="font-size: 16px; font-weight: 500; color: var(--ink);">Getting It Right vs. Failing Fast</div>
+      </div>
+      <div style="background: var(--paper); padding: 20px 24px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 6px;">04</div>
+        <div style="font-size: 16px; font-weight: 500; color: var(--ink);">Consistent Value Creation in Driving High Impact</div>
+      </div>
+      <div style="background: var(--paper); padding: 20px 24px;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 6px;">05</div>
+        <div style="font-size: 16px; font-weight: 500; color: var(--ink);">The Kind of People Who Make Teams Work</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+  <nav class="footer-links">
+    <a href="about.html">About</a>
+    <a href="thinking.html">Writing</a>
+    <a href="creativity.html">Creativity</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
+  </nav>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
