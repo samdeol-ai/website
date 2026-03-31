@@ -82,6 +82,40 @@
     .luck-grid { grid-template-columns: 1fr; }
     .closing-section { padding: 48px 20px; }
   }
+  /* ── NAV ── */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--ink); border-bottom: 2px solid var(--gold); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links .nav-cta a { color: var(--gold-light); border: 1px solid rgba(184,134,11,0.45); padding: 5px 14px; }
+  .nav-links .nav-cta a:hover { color: var(--paper); border-color: var(--gold-light); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.6); transition: all 0.2s; }
+  .nav-mobile { display: none; position: fixed; inset: 60px 0 0 0; background: var(--ink); z-index: 99; padding: 40px 24px; flex-direction: column; gap: 0; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 16px 0; border-bottom: 0.5px solid rgba(255,255,255,0.08); text-decoration: none; }
+  .nav-mobile a:hover { color: var(--gold-light); }
+  /* ── BACK TO BLOGS BAR ── */
+  .back-to-blogs { background: var(--ink); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 48px; }
+  .back-to-blogs a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.15s; }
+  .back-to-blogs a:hover { color: var(--gold-light); }
+  .back-to-blogs a::before { content: '\2190'; }
+  /* ── RESPONSIVE: TABLET ── */
+  @media (max-width: 900px) {
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-mobile { inset: 60px 0 0 0; }
+    .back-to-blogs { padding: 10px 24px; }
+  }
+  /* ── RESPONSIVE: MOBILE ── */
+  @media (max-width: 480px) {
+    .nav { padding: 0 16px; height: 52px; }
+    .nav-logo { font-size: 14px; }
+    .nav-mobile { inset: 52px 0 0 0; padding: 32px 16px; }
+    .back-to-blogs { padding: 8px 16px; }
+  }
 </style>
 </head>
 <body>
@@ -109,6 +143,7 @@
 <div class="back-to-blogs">
   <a href="../blogs.html">Read more blogs</a>
 </div>
+
 
 <div class="hero">
   <div class="hero-inner">
