@@ -29,12 +29,11 @@
 
     /* masonry-style image grid */
     .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; gap: 2px; }
-    .gallery-grid img { width: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
-    .gallery-grid div { overflow: hidden; }
+    .gallery-grid div { overflow: hidden; min-height: 280px; background: var(--surface); }
+    .gallery-grid img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
     .gallery-grid div:hover img { transform: scale(1.04); }
-    .gallery-grid .tall { grid-row: span 2; }
-    .gallery-grid .wide { grid-column: span 2; }
-    .gallery-grid .tall img { height: 100%; min-height: 520px; }
+    .gallery-grid .tall { grid-row: span 2; min-height: 560px; }
+    .gallery-grid .wide { grid-column: span 2; min-height: 280px; }
     .gallery-grid .wide img { aspect-ratio: 2/1; }
     .gallery-grid div:not(.tall):not(.wide) img { aspect-ratio: 1/1; }
 
@@ -161,18 +160,18 @@
     <p style="margin-top: 12px; margin-bottom: 32px; max-width: 480px;">Theater and expressions. A visual record of creative work across disciplines.</p>
   </div>
 </section>
-<div class="gallery-grid reveal" style="margin-bottom: 96px;">
+<div class="gallery-grid" style="margin-bottom: 96px;">
   <div class="tall">
-    <img src="assets/images/creativity-4.jpg" alt="Gallery" loading="lazy">
+    <img src="assets/images/creativity-4.jpg" alt="Gallery" loading="eager">
   </div>
   <div>
-    <img src="assets/images/creativity-5.jpg" alt="Gallery" loading="lazy">
+    <img src="assets/images/creativity-5.jpg" alt="Gallery" loading="eager">
   </div>
   <div>
-    <img src="assets/images/creativity-6.jpg" alt="Gallery" loading="lazy">
+    <img src="assets/images/creativity-6.jpg" alt="Gallery" loading="eager">
   </div>
   <div class="wide">
-    <img src="assets/images/creativity-7.jpg" alt="Gallery" loading="lazy">
+    <img src="assets/images/creativity-7.jpg" alt="Gallery" loading="eager">
   </div>
 </div>
 
