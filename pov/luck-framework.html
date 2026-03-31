@@ -21,14 +21,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); font-size: 17px; line-height: 1.75; }
 
-  .masthead { background: var(--ink); color: var(--paper); padding: 12px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--gold); }
-  .masthead-brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.6; }
-  .masthead-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.05em; }
-  .masthead-nav { display: flex; align-items: center; gap: 20px; }
-  .masthead-nav a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.15s; }
-  .masthead-nav a:hover { color: var(--gold-light); }
-  .masthead-nav a.primary { color: var(--gold-light); border: 1px solid rgba(184,134,11,0.4); padding: 4px 12px; }
-  .masthead-nav a.primary:hover { border-color: var(--gold-light); color: var(--paper); }
+
 
   .hero { background: var(--ink); color: var(--paper); padding: 80px 48px 90px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; border: 1px solid rgba(184,134,11,0.15); border-radius: 50%; pointer-events: none; }
@@ -93,14 +86,29 @@
 </head>
 <body>
 
-<header class="masthead">
-  <span class="masthead-brand">Point of View · Leadership</span>
-  <span class="masthead-name">Samir Deolikar</span>
-  <nav class="masthead-nav">
-    <a href="../index.html">Blog Home</a>
-    <a href="https://samirdeolikar.com" class="primary" target="_blank">samirdeolikar.com</a>
-  </nav>
-</header>
+<nav class="nav" id="nav">
+  <a href="../index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../blogs.html" class="active">Blogs</a></li>
+    <li><a href="../creativity.html">Creativity</a></li>
+    <li class="nav-cta"><a href="../contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../blogs.html">Blogs</a>
+  <a href="../creativity.html">Creativity</a>
+  <a href="../contact.html">Get in touch</a>
+</div>
+<div class="back-to-blogs">
+  <a href="../blogs.html">Read more blogs</a>
+</div>
 
 <div class="hero">
   <div class="hero-inner">
@@ -175,7 +183,7 @@
   <div class="closing-author">Samir Deolikar · San Francisco Bay Area</div>
 </div>
 
-<footer>© 2025 Samir Deolikar · Point of View Series · Leadership in the AI Era</footer>
+<footer>© 2025 Samir Deolikar · San Francisco Bay Area</footer>
 
 <script>
   ['.luck-card', '.equation', '.callout'].forEach(sel => {
