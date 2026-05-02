@@ -27,6 +27,19 @@
     .split-text h2 { margin-bottom: 20px; }
     .split-text p { margin-bottom: 16px; }
 
+    /* compact variant: image height = text content height, crop from bottom only */
+    .split-panel--compact { min-height: 0; }
+    .split-panel--compact .split-image { position: relative; }
+    .split-panel--compact .split-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      object-position: top;
+    }
+
     /* masonry-style image grid */
     .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; gap: 2px; }
     .gallery-grid div { overflow: hidden; min-height: 280px; background: var(--surface); }
@@ -134,7 +147,7 @@
 </div>
 
 <!-- EXPRESSION -->
-<div class="split-panel reveal">
+<div class="split-panel split-panel--compact reveal">
   <div class="split-text" style="background: var(--surface);">
     <span class="eyebrow">Expression</span>
     <h2>Experience design, storytelling, and shared purpose</h2>
