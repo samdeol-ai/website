@@ -10,11 +10,15 @@
   <style>
     /* topics grid */
     .topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); margin-top: 48px; }
-    .topic-card { background: var(--paper); padding: 40px 36px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.15s; }
+    .topic-card { background: var(--paper); padding: 40px 36px; border-left: 3px solid transparent; transition: border-color 0.2s, background 0.15s; display: block; text-decoration: none; color: inherit; position: relative; }
     .topic-card:hover { border-left-color: var(--gold); background: var(--surface); }
+    .topic-card:hover .num { color: var(--gold); transition: color 0.2s; }
+    .topic-card:hover .topic-go { color: var(--gold); transform: translateX(4px); }
     .topic-card .num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--rule); line-height: 1; margin-bottom: 16px; }
-    .topic-card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.3; }
-    .topic-card p { font-size: 14px; line-height: 1.7; margin: 0; }
+    .topic-card h3 { font-size: 20px; margin-bottom: 12px; line-height: 1.3; color: var(--ink); }
+    .topic-card p { font-size: 14px; line-height: 1.7; margin: 0; color: var(--muted); }
+    .topic-card .topic-go { display: inline-block; margin-top: 18px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rule); transition: color 0.2s, transform 0.2s; }
+    .topic-card--wide { grid-column: 1 / -1; }
 
     /* articles */
     .article-featured {
@@ -197,31 +201,36 @@
     <span class="eyebrow">Topics I Think About</span>
     <p style="max-width: 560px; margin-top: 12px; font-size: 16px;">These are themes I keep coming back to — sometimes in my work, sometimes in conversations, and often in quiet moments between the two.</p>
     <div class="topics-grid">
-      <div class="topic-card">
+      <a class="topic-card" href="topics/leadership-uncertain-times.html">
         <div class="num">01</div>
         <h3>Leadership in Uncertain Times</h3>
         <p>Leadership isn't about having all the answers. It's about helping others stay grounded when things feel unclear. What's the right time to experiment, and when do you hold steady? Scaling isn't just about speed. It's about sensing change early and adjusting with intent.</p>
-      </div>
-      <div class="topic-card">
+        <span class="topic-go">Read the essay &rarr;</span>
+      </a>
+      <a class="topic-card" href="topics/cultures-that-scale.html">
         <div class="num">02</div>
         <h3>Building Cultures That Help Scale</h3>
         <p>Complexity is inevitable as an organisation grows. The right culture functions like an operating system. It should accelerate decision-making, empower teams, and drive consistent outcomes. The real challenge isn't just building a great culture, but scaling it without losing what makes it work.</p>
-      </div>
-      <div class="topic-card">
+        <span class="topic-go">Read the essay &rarr;</span>
+      </a>
+      <a class="topic-card" href="topics/getting-it-right-vs-failing-fast.html">
         <div class="num">03</div>
         <h3>Getting It Right vs. Failing Fast</h3>
         <p>When you're building something meaningful, should the focus be on getting it right the first time or moving fast enough to learn from failure? Maybe both matter. But the balance shifts depending on where you are and who you're building with.</p>
-      </div>
-      <div class="topic-card">
+        <span class="topic-go">Read the essay &rarr;</span>
+      </a>
+      <a class="topic-card" href="topics/consistent-value-creation.html">
         <div class="num">04</div>
         <h3>Consistent Value Creation in Driving High Impact</h3>
         <p>In fast-moving environments, big wins often come from doing the basics right again and again. The ability to deliver value consistently, not just occasionally, is what separates good teams from great ones and what truly drives transformation that lasts.</p>
-      </div>
-    </div>
-    <div class="topic-card" style="border: 2px solid var(--rule); margin-top: 2px;">
-      <div class="num">05</div>
-      <h3>The Kind of People Who Make Teams Work</h3>
-      <p>With the right intent, mindset, and curiosity, almost everything can be learned. Great teams aren't always built with the most experienced people. They're built with people who want to learn, who help each other grow, and who show up with the right energy, every day.</p>
+        <span class="topic-go">Read the essay &rarr;</span>
+      </a>
+      <a class="topic-card topic-card--wide" href="topics/people-who-make-teams-work.html">
+        <div class="num">05</div>
+        <h3>The Kind of People Who Make Teams Work</h3>
+        <p>With the right intent, mindset, and curiosity, almost everything can be learned. Great teams aren't always built with the most experienced people. They're built with people who want to learn, who help each other grow, and who show up with the right energy, every day.</p>
+        <span class="topic-go">Read the essay &rarr;</span>
+      </a>
     </div>
   </div>
 </section>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Cultures That Help Scale · Treat Culture Like an Operating System · Samir Deolikar</title>
+<meta name="description" content="Culture at scale behaves like an operating system. The kernel stays fixed. The shell needs to be rewritten at every growth stage.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #ffffff;
+    --cream: #f2f2f2;
+    --bone: #ebe7df;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --rust: #8b3a2a;
+    --slate: #444444;
+    --muted: #6b6b6b;
+    --rule: #dedede;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); font-size: 17px; line-height: 1.75; }
+
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--ink); border-bottom: 2px solid var(--gold); padding: 0 48px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--gold-light); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links .nav-cta a { color: var(--gold-light); border: 1px solid rgba(184,134,11,0.45); padding: 5px 14px; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.6); }
+  .nav-mobile { display: none; position: fixed; inset: 60px 0 0 0; background: var(--ink); z-index: 99; padding: 40px 24px; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 16px 0; border-bottom: 0.5px solid rgba(255,255,255,0.08); text-decoration: none; }
+
+  .back-strip { background: var(--ink); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 48px; }
+  .back-strip a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; }
+  .back-strip a:hover { color: var(--gold-light); }
+  .back-strip a::before { content: '\2190 \00a0'; }
+
+  /* HERO  cream / system diagram */
+  .hero { background: var(--bone); color: var(--ink); padding: 96px 48px 100px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold) 35%, var(--gold) 65%, transparent);
+  }
+  .hero-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); border: 1px solid var(--rust); display: inline-block; padding: 4px 12px; margin-bottom: 28px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--ink); }
+  .hero h1 em { font-style: italic; color: var(--rust); }
+  .hero-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: var(--slate); max-width: 580px; margin-bottom: 32px; }
+  .hero-meta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .hero-meta span + span::before { content: ' · '; opacity: 0.5; }
+
+  /* SYSTEM DIAGRAM kernel + shell */
+  .sys { position: relative; aspect-ratio: 1 / 1; max-width: 360px; justify-self: end; }
+  .sys-shell, .sys-kernel { position: absolute; border: 1px dashed var(--gold); display: flex; align-items: flex-start; justify-content: flex-start; padding: 12px 16px; }
+  .sys-shell { inset: 0; background: rgba(184,134,11,0.04); }
+  .sys-kernel { inset: 26%; background: var(--ink); border-style: solid; border-color: var(--ink); color: var(--paper); }
+  .sys-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+  .sys-kernel .sys-label { color: var(--gold-light); }
+  .sys-kernel-mid { position: absolute; inset: 26%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .sys-kernel-mid span { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--gold-light); }
+
+  /* INTRO */
+  .reading { max-width: 760px; margin: 0 auto; padding: 88px 48px 16px; }
+  .reading p { color: var(--ink); font-size: 18px; line-height: 1.85; margin-bottom: 24px; }
+  .reading p.lead { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.55; color: var(--slate); margin-bottom: 30px; }
+
+  /* RESEARCH CALLOUT */
+  .research { max-width: 880px; margin: 56px auto; padding: 0 48px; }
+  .research-inner {
+    background: var(--cream); padding: 40px 44px; position: relative;
+    background-image: radial-gradient(rgba(13,13,13,0.07) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .research-inner::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px; background: var(--rust); }
+  .research-kicker { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; }
+  .research-inner p { font-family: 'Playfair Display', serif; font-size: clamp(18px, 1.7vw, 21px); line-height: 1.55; color: var(--ink); }
+
+  /* PRINCIPLES  vertical stack with rail */
+  .principles { max-width: 880px; margin: 0 auto; padding: 56px 48px 96px; }
+  .principles-head { margin-bottom: 40px; }
+  .principles-head .eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+  .principles-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin-top: 12px; max-width: 640px; }
+  .principles-head h2 em { font-style: italic; color: var(--rust); }
+
+  .stack { position: relative; margin-left: 48px; padding-left: 40px; border-left: 1px solid var(--rule); }
+  .layer { position: relative; padding: 36px 0 36px 0; }
+  .layer + .layer { border-top: 1px solid var(--rule); }
+  .layer-num {
+    position: absolute; left: -68px; top: 36px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--paper); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--ink);
+  }
+  .layer-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .layer h3 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 18px; }
+  .layer p { font-size: 17px; line-height: 1.85; color: var(--slate); margin-bottom: 16px; }
+
+  /* OUTRO */
+  .outro { max-width: 760px; margin: 0 auto; padding: 16px 48px 88px; }
+  .outro p { color: var(--ink); font-size: 18px; line-height: 1.85; margin-bottom: 24px; }
+  .outro p.thread { font-family: 'Playfair Display', serif; font-style: italic; font-size: 21px; line-height: 1.55; color: var(--slate); }
+
+  /* CLOSING */
+  .closing { background: var(--ink); color: var(--paper); padding: 88px 48px; text-align: center; border-top: 3px solid var(--gold); }
+  .closing-rule { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; }
+  .closing-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+  .closing-q { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(22px, 3.5vw, 34px); line-height: 1.45; max-width: 760px; margin: 0 auto 32px; color: var(--paper); }
+  .closing-author { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; opacity: 0.5; }
+
+  footer { background: #080808; color: rgba(255,255,255,0.35); text-align: center; padding: 24px 48px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-grid > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-grid > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-grid > *:nth-child(2) { animation-delay: 0.25s; }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .back-strip { padding: 10px 24px; }
+    .hero { padding: 64px 24px 72px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sys { justify-self: start; max-width: 280px; }
+    .reading, .principles, .outro { padding-left: 24px; padding-right: 24px; }
+    .research { padding: 0 24px; }
+    .research-inner { padding: 28px; }
+    .stack { margin-left: 28px; padding-left: 28px; }
+    .layer-num { left: -56px; width: 48px; height: 48px; font-size: 16px; }
+    .closing { padding: 64px 24px; }
+  }
+  @media (max-width: 480px) {
+    .nav { padding: 0 16px; height: 52px; }
+    .nav-logo { font-size: 14px; }
+    .nav-mobile { inset: 52px 0 0 0; padding: 32px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../blogs.html">Blogs</a></li>
+    <li><a href="../creativity.html">Creativity</a></li>
+    <li class="nav-cta"><a href="../contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../blogs.html">Blogs</a>
+  <a href="../creativity.html">Creativity</a>
+  <a href="../contact.html">Get in touch</a>
+</div>
+<div class="back-strip"><a href="../index.html#topics">Back to all topics</a></div>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-label">An Essay · Vol. 02 · Culture as an OS</div>
+      <h1>Building Cultures<br>That Help <em>Scale</em>.</h1>
+      <p class="hero-deck">The kernel, your non-negotiable values, stays fixed. The shell, how ownership and decisions actually work, needs to be rewritten at every growth stage.</p>
+      <div class="hero-meta"><span>Topics I Think About</span><span>02 of 05</span></div>
+    </div>
+    <div class="sys" aria-hidden="true">
+      <div class="sys-shell"><span class="sys-label">Shell · re-architect at each stage</span></div>
+      <div class="sys-kernel"><span class="sys-label">Kernel · fixed</span></div>
+      <div class="sys-kernel-mid"><span>values</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reading reveal">
+  <p class="lead">A pattern I have lived through more than once, and watched many of my peers live through, is the moment when a growing organization quietly stops feeling like the one you started with.</p>
+  <p>The all-hands lands differently. Decisions take a little longer. New hires describe the company in ways that don't quite match what the early team would say. Nobody has done anything wrong. The culture is just no longer doing what it used to do on its own.</p>
+  <p>I've sat through this transition at many different scales. From small early-stage teams, through the messy middle stages where things grow faster than the operating model, all the way up to large global organizations. Each stage has its own version of this moment. The shape changes, the symptoms change, but the underlying question is the same. The way the team works has outgrown the way it was originally set up to work.</p>
+  <p>In that moment, the natural instinct, certainly mine and many of my peers', is to reach for the familiar tools. Write down the values again. Run a culture workshop. Hire a Head of Culture. None of that is misplaced; it is often necessary. But in my experience, it has rarely been sufficient on its own. The deeper issue, when I look back at the transitions I've lived through, was usually that the culture was built for a different scale, and the operating layer underneath it hadn't been redesigned to match where the organization was now.</p>
+  <p>The way I've come to think about it is this. Culture at scale behaves like an operating system. The kernel, your non-negotiable values, stays fixed. The shell, how ownership, decisions, and processes actually work, needs to be rewritten at every growth stage. Organizations seem to struggle when they freeze the shell instead of evolving it.</p>
+</section>
+
+<div class="research reveal">
+  <div class="research-inner">
+    <div class="research-kicker">A note on the evidence</div>
+    <p>This is not only a metaphor. There is well-known research from anthropologist Robin Dunbar showing that humans can maintain only a limited number of stable relationships before group cohesion starts to strain, which is why some companies, like W.L. Gore, deliberately cap facility sizes and build new ones rather than letting existing ones grow further. Patty McCord, Netflix's former chief talent officer, has written that the conversations she has with CEOs about cultural transitions repeat themselves at almost every growth stage. The fracture isn't a failure of values. It is a structural transition that asks the leader to redesign the operating layer.</p>
+  </div>
+</div>
+
+<section class="principles">
+  <div class="principles-head reveal">
+    <span class="eyebrow">Three principles</span>
+    <h2>How I think about <em>redesigning</em> the operating layer.</h2>
+  </div>
+
+  <div class="stack">
+    <article class="layer reveal">
+      <div class="layer-num">01</div>
+      <div class="layer-tag">Principle No. 01</div>
+      <h3>Keep the kernel small, fixed, and sacred.</h3>
+      <p>The non-negotiables, how you treat people, how you handle truth, what you'll refuse to do for a deal, should be few, and rarely up for revision. A pattern I've noticed in many companies, including ones I've been part of, is that the value list grows too long with the best of intentions, and then quietly dilutes further when growth pressure hits. A short, stubborn kernel is what lets everything else change without the company losing itself.</p>
+    </article>
+
+    <article class="layer reveal">
+      <div class="layer-num">02</div>
+      <div class="layer-tag">Principle No. 02</div>
+      <h3>Redesign the shell at each stage, deliberately.</h3>
+      <p>Ownership in a small team often looks like "everyone owns everything." That same instinct, at scale, can become paralysis. From what I've seen, each growth stage seems to call for a different version of how decisions get made, how performance is measured, how outcomes are owned. The leaders I admire, the ones who scale well, tend not to wait for the shell to break. They redesign it on the way up. And they're willing to retire processes that worked beautifully a year ago and have quietly started getting in the way.</p>
+      <p>One thing I've personally cared about, even at the largest team sizes I've led, is staying approachable and directly connected to the people doing the work. That has only been possible because I kept redesigning the shell underneath me, the cadence of communication, the structure of decision rights, the way information flowed, so that scale didn't quietly turn into distance.</p>
+    </article>
+
+    <article class="layer reveal">
+      <div class="layer-num">03</div>
+      <div class="layer-tag">Principle No. 03</div>
+      <h3>Keep processes in service of outcomes, never the other way around.</h3>
+      <p>This is the principle that, in my experience, quietly determines whether a culture stays alive or hardens into bureaucracy. Processes are useful as long as they serve the outcome. The moment a team starts optimizing for the process, running the meeting because the meeting is on the calendar, filling the template because the template exists, culture has begun to invert. The healthier organizations I've worked with question their own processes regularly. The aging ones tend to defend them.</p>
+    </article>
+  </div>
+</section>
+
+<section class="outro reveal">
+  <p>Underneath all of this is something I learned the hard way. Clarity from leadership, visibility in decision-making, and helping people see the bigger picture isn't a project. It is a continuous job. I've done it reactively, after an incident made it obvious. I've done it by stepping into someone else's shoes when I should have done so earlier. And I've done it because I was lost once myself, and that probably taught me more empathy than any framework could.</p>
+  <p class="thread">The cultures I've seen scale well aren't the ones with the best values posters. They are the ones where leaders keep the kernel sacred, keep redesigning the shell, and keep processes accountable to outcomes, rather than the reverse.</p>
+</section>
+
+<section class="closing">
+  <div class="closing-rule"></div>
+  <div class="closing-eyebrow">A question to sit with</div>
+  <div class="closing-q">If you redesigned the operating layer of your team this quarter, what would you stop doing first?</div>
+  <div class="closing-rule"></div>
+  <div class="closing-author">Samir Deolikar · Topics I Think About</div>
+</section>
+
+<footer>© 2025 Samir Deolikar · Topics I Think About · Vol. 02</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
