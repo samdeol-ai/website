@@ -50,9 +50,22 @@
 
     /* creativity preview */
     .creativity-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
-    .creativity-panel { position: relative; overflow: hidden; background: #1a1a1a; min-height: 420px; }
+    .creativity-panel { position: relative; overflow: hidden; background: #1a1a1a; min-height: 420px; display: block; cursor: pointer; }
     .creativity-panel img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; transition: transform 0.6s ease; }
     .creativity-panel:hover img { transform: scale(1.04); }
+    .creativity-panel:hover .creativity-overlay { background: linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.2) 65%); }
+    .creativity-overlay { transition: background 0.4s ease; }
+    .creativity-panel::after {
+      content: '→';
+      position: absolute; top: 28px; right: 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 18px;
+      color: var(--gold-light);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .creativity-panel:hover::after { opacity: 1; transform: none; }
     .creativity-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.1) 60%);
@@ -200,23 +213,23 @@
     <h2 style="max-width: 560px; margin-top: 8px;">Creativity sharpens how I lead, especially when the path isn't clear</h2>
   </div>
   <div class="creativity-grid">
-    <div class="creativity-panel">
+    <a class="creativity-panel" href="theater.html">
       <img src="assets/images/index-2.jpg" alt="Theater" loading="eager">
       <div class="creativity-overlay">
         <h3>Theater</h3>
         <p>Writing, directing, and producing plays has taught me how to lead without having all the answers upfront.</p>
       </div>
-    </div>
-    <div class="creativity-panel">
+    </a>
+    <a class="creativity-panel" href="expressions.html">
       <img src="assets/images/index-3.jpg" alt="Expression" loading="eager">
       <div class="creativity-overlay">
-        <h3>Expression</h3>
+        <h3>Expressions</h3>
         <p>Bringing large-scale cultural experiences to life has shaped how I think about storytelling and shared purpose.</p>
       </div>
-    </div>
+    </a>
   </div>
   <div class="container" style="padding-top: 40px; padding-bottom: 72px;">
-    <a href="creativity.html" class="btn btn--gold">Explore creativity</a>
+    <a href="creativity.html" class="btn btn--gold">My Creative Take</a>
   </div>
 </section>
 

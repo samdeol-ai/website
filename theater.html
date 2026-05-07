@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theater — Samir Deolikar</title>
+  <meta name="description" content="A chronological record of Samir Deolikar's work in theater — writing, directing, producing, and the lessons each production brought.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .hero-memoir { position: relative; min-height: 70vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-memoir .hero-bg { position: absolute; inset: 0; }
+    .hero-memoir .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-memoir .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.4) 55%, rgba(13,13,13,0.15) 100%); }
+    .hero-memoir .hero-inner { position: relative; z-index: 2; padding-bottom: 64px; }
+    .hero-memoir h1 { color: var(--paper); max-width: 720px; }
+    .hero-memoir h1 em { color: var(--gold-light); font-style: italic; }
+    .hero-memoir p { color: rgba(255,255,255,0.7); max-width: 520px; margin-top: 18px; }
+
+    @media (max-width: 900px) {
+      .hero-memoir { min-height: 58vh; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Samir Deolikar</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="creativity.html" class="active">Creativity</a></li>
+    <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blogs.html">Blogs</a>
+  <a href="creativity.html">Creativity</a>
+  <a href="contact.html">Get in touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-memoir">
+  <div class="hero-bg">
+    <img src="assets/images/index-2.jpg" alt="Theater" loading="eager">
+  </div>
+  <div class="container hero-inner">
+    <span class="eyebrow animate-1">Theater</span>
+    <h1 class="animate-2">A life lived <em>on stage</em><br>and behind it</h1>
+    <p class="animate-3">Writing, directing, producing — a chronological record of the productions and moments that shaped how I think about leadership, collaboration, and craft.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section reveal">
+  <div class="container--narrow">
+    <p style="font-size: 19px; color: var(--ink); line-height: 1.85;">Theater has been my longest-running creative pursuit. Each production has taught me something I couldn't have learned in a meeting room — about ambiguity, about timing, about trust.</p>
+    <p style="margin-top: 20px;">This page grows as I revisit older work and add new chapters. Newest entries appear on top.</p>
+  </div>
+</section>
+
+<!-- MEMOIR ENTRIES -->
+<div class="memoir-stack">
+
+  <!-- ENTRY: seed (replace with first real memory when ready) -->
+  <article class="memoir-entry reveal">
+    <div class="memoir-text">
+      <span class="memoir-date">A Reflection</span>
+      <h2 class="memoir-title">Leading without the answers upfront</h2>
+      <p class="memoir-desc">Writing, directing, and producing plays has taught me how to lead without all the answers. Every production starts in ambiguity and becomes real through collaboration, iteration, and trust.</p>
+    </div>
+    <div class="memoir-images memoir-images--1">
+      <img src="assets/images/creativity-2.jpg" alt="Theater" loading="eager">
+    </div>
+  </article>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+  <nav class="footer-links">
+    <a href="about.html">About</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="creativity.html">Creativity</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
+  </nav>
+</footer>
+
+<script>
+  function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
