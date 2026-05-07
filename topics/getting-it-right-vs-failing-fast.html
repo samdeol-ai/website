@@ -39,28 +39,28 @@
   .back-strip a:hover { color: var(--gold-light); }
   .back-strip a::before { content: '\2190 \00a0'; }
 
-  /* HERO  split screen dichotomy */
-  .hero { position: relative; overflow: hidden; min-height: 540px; display: grid; grid-template-columns: 1fr 1fr; }
-  .hero-half { padding: 88px 48px; display: flex; flex-direction: column; justify-content: center; position: relative; }
-  .hero-half--ink { background: var(--ink); color: var(--paper); align-items: flex-end; text-align: right; }
-  .hero-half--paper { background: var(--paper); color: var(--ink); align-items: flex-start; text-align: left; }
-  .hero-side-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 18px; }
-  .hero-half--ink .hero-side-label { color: var(--gold-light); }
-  .hero-half--paper .hero-side-label { color: var(--rust); }
-  .hero-phrase { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 6.5vw, 78px); line-height: 1.02; letter-spacing: -0.025em; max-width: 480px; }
-  .hero-half--ink .hero-phrase { color: var(--gold-light); }
-  .hero-half--paper .hero-phrase em { font-style: italic; color: var(--rust); }
-  .hero-vs {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 80px; height: 80px; border-radius: 50%; background: var(--gold); color: var(--ink);
+  /* HERO  single column, typographic dichotomy */
+  .hero { background: var(--ink); color: var(--paper); padding: 88px 48px 84px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(212,160,23,0.10) 0%, rgba(212,160,23,0) 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -140px; left: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(139,58,42,0.12) 0%, rgba(139,58,42,0) 70%); pointer-events: none; }
+  .hero-inner { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff; background: var(--rust); display: inline-block; padding: 4px 12px; margin-bottom: 36px; }
+  .hero-stack { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .hero-phrase { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.025em; }
+  .hero-phrase--right { color: var(--gold-light); }
+  .hero-phrase--fast { color: var(--paper); }
+  .hero-phrase--fast em { font-style: italic; color: var(--rust); }
+  .hero-vs-row { display: flex; align-items: center; justify-content: center; gap: 18px; width: 100%; max-width: 520px; }
+  .hero-vs-row .rule { flex: 1; height: 1px; background: rgba(184,134,11,0.55); }
+  .hero-vs-medallion {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--ink);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; font-size: 22px;
-    z-index: 2; box-shadow: 0 0 0 8px var(--paper);
+    font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; font-size: 20px;
+    flex-shrink: 0;
   }
-  .hero-deck-band { background: var(--cream); padding: 32px 48px; text-align: center; border-bottom: 1px solid var(--rule); }
-  .hero-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: var(--slate); max-width: 760px; margin: 0 auto; }
-  .hero-meta-band { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 14px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-  .hero-meta-band span + span::before { content: '·'; margin-right: 18px; opacity: 0.5; }
+  .hero-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: rgba(255,255,255,0.72); max-width: 720px; margin: 36px auto 22px; }
+  .hero-meta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .hero-meta span + span::before { content: ' · '; opacity: 0.5; }
 
   /* INTRO */
   .reading { max-width: 720px; margin: 0 auto; padding: 88px 48px 16px; }
@@ -121,10 +121,11 @@
   footer { background: #080808; color: rgba(255,255,255,0.35); text-align: center; padding: 24px 48px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-half > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
-  .hero-half > *:nth-child(1) { animation-delay: 0.05s; }
-  .hero-half > *:nth-child(2) { animation-delay: 0.15s; }
-  .hero-vs { opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards; }
+  .hero-inner > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-label { animation-delay: 0.05s; }
+  .hero-stack { animation-delay: 0.15s; }
+  .hero-deck { animation-delay: 0.3s; }
+  .hero-meta { animation-delay: 0.4s; }
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -133,10 +134,9 @@
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
     .back-strip { padding: 10px 24px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-half { padding: 56px 24px; align-items: center; text-align: center; }
-    .hero-vs { position: static; transform: none; margin: 0 auto; box-shadow: 0 0 0 6px var(--cream); }
-    .hero-deck-band { padding: 24px; }
+    .hero { padding: 56px 24px 60px; }
+    .hero-vs-medallion { width: 52px; height: 52px; font-size: 17px; }
+    .hero-stack { gap: 14px; }
     .reading, .outro { padding-left: 24px; padding-right: 24px; }
     .stats, .flow { padding-left: 24px; padding-right: 24px; }
     .stats-grid { grid-template-columns: 1fr; }
@@ -175,20 +175,21 @@
 <div class="back-strip"><a href="../index.html#topics">Back to all topics</a></div>
 
 <section class="hero">
-  <div class="hero-half hero-half--ink">
-    <div class="hero-side-label">Mode A · Slow down</div>
-    <div class="hero-phrase">Getting It Right.</div>
+  <div class="hero-inner">
+    <div class="hero-label">An Essay · Vol. 03 · Two Modes, One Sequence</div>
+    <div class="hero-stack">
+      <div class="hero-phrase hero-phrase--right">Getting It Right.</div>
+      <div class="hero-vs-row" aria-hidden="true">
+        <span class="rule"></span>
+        <span class="hero-vs-medallion">vs</span>
+        <span class="rule"></span>
+      </div>
+      <div class="hero-phrase hero-phrase--fast">Failing <em>Fast</em>.</div>
+    </div>
+    <p class="hero-deck">The question most leaders get backwards. The two modes aren't opposites. They are usually a sequence, applied in the right order to the right kind of decision.</p>
+    <div class="hero-meta"><span>Topics I Think About</span><span>03 of 05</span></div>
   </div>
-  <div class="hero-half hero-half--paper">
-    <div class="hero-side-label">Mode B · Move now</div>
-    <div class="hero-phrase">Failing <em>Fast</em>.</div>
-  </div>
-  <div class="hero-vs">vs</div>
 </section>
-<div class="hero-deck-band">
-  <div class="hero-deck">The question most leaders get backwards. The two modes aren't opposites. They are usually a sequence, applied in the right order to the right kind of decision.</div>
-  <div class="hero-meta-band"><span>An Essay · Vol. 03</span><span>Topics I Think About · 03 of 05</span></div>
-</div>
 
 <section class="reading reveal">
   <p class="lead">For about fifteen years, "fail fast" has been the default operating philosophy of modern business.</p>

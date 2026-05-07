@@ -40,29 +40,28 @@
   .back-strip a:hover { color: var(--gold-light); }
   .back-strip a::before { content: '\2190 \00a0'; }
 
-  /* HERO  cream / system diagram */
-  .hero { background: var(--bone); color: var(--ink); padding: 96px 48px 100px; position: relative; overflow: hidden; }
+  /* HERO  single column, cream */
+  .hero { background: var(--bone); color: var(--ink); padding: 88px 48px 92px; position: relative; overflow: hidden; text-align: center; }
   .hero::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, var(--gold) 35%, var(--gold) 65%, transparent);
   }
-  .hero-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; }
+  .hero-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 1; }
   .hero-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); border: 1px solid var(--rust); display: inline-block; padding: 4px 12px; margin-bottom: 28px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--ink); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 28px; color: var(--ink); }
   .hero h1 em { font-style: italic; color: var(--rust); }
-  .hero-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: var(--slate); max-width: 580px; margin-bottom: 32px; }
+  .hero-deck { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: var(--slate); max-width: 640px; margin: 0 auto 32px; }
   .hero-meta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
   .hero-meta span + span::before { content: ' · '; opacity: 0.5; }
 
-  /* SYSTEM DIAGRAM kernel + shell */
-  .sys { position: relative; aspect-ratio: 1 / 1; max-width: 360px; justify-self: end; }
-  .sys-shell, .sys-kernel { position: absolute; border: 1px dashed var(--gold); display: flex; align-items: flex-start; justify-content: flex-start; padding: 12px 16px; }
-  .sys-shell { inset: 0; background: rgba(184,134,11,0.04); }
-  .sys-kernel { inset: 26%; background: var(--ink); border-style: solid; border-color: var(--ink); color: var(--paper); }
-  .sys-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
-  .sys-kernel .sys-label { color: var(--gold-light); }
-  .sys-kernel-mid { position: absolute; inset: 26%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-  .sys-kernel-mid span { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--gold-light); }
+  /* SYSTEM DIAGRAM  centered decorative element below headline */
+  .sys { position: relative; width: 280px; height: 280px; margin: 8px auto 36px; }
+  .sys-shell, .sys-kernel { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .sys-shell { inset: 0; border: 1px dashed var(--gold); background: rgba(184,134,11,0.05); }
+  .sys-kernel { inset: 28%; background: var(--ink); color: var(--paper); }
+  .sys-shell-tag { position: absolute; top: 10px; left: 14px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+  .sys-kernel-tag { position: absolute; top: 10px; left: 14px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); }
+  .sys-kernel-mid { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--gold-light); }
 
   /* INTRO */
   .reading { max-width: 760px; margin: 0 auto; padding: 88px 48px 16px; }
@@ -116,9 +115,12 @@
   footer { background: #080808; color: rgba(255,255,255,0.35); text-align: center; padding: 24px 48px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-grid > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
-  .hero-grid > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-grid > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-inner > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-label { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.15s; }
+  .sys { animation-delay: 0.25s; }
+  .hero-deck { animation-delay: 0.35s; }
+  .hero-meta { animation-delay: 0.45s; }
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -128,8 +130,7 @@
     .nav-toggle { display: flex; }
     .back-strip { padding: 10px 24px; }
     .hero { padding: 64px 24px 72px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .sys { justify-self: start; max-width: 280px; }
+    .sys { width: 240px; height: 240px; }
     .reading, .principles, .outro { padding-left: 24px; padding-right: 24px; }
     .research { padding: 0 24px; }
     .research-inner { padding: 28px; }
@@ -167,18 +168,20 @@
 <div class="back-strip"><a href="../index.html#topics">Back to all topics</a></div>
 
 <section class="hero">
-  <div class="hero-grid">
-    <div>
-      <div class="hero-label">An Essay · Vol. 02 · Culture as an OS</div>
-      <h1>Building Cultures<br>That Help <em>Scale</em>.</h1>
-      <p class="hero-deck">The kernel, your non-negotiable values, stays fixed. The shell, how ownership and decisions actually work, needs to be rewritten at every growth stage.</p>
-      <div class="hero-meta"><span>Topics I Think About</span><span>02 of 05</span></div>
-    </div>
+  <div class="hero-inner">
+    <div class="hero-label">An Essay · Vol. 02 · Culture as an OS</div>
+    <h1>Building Cultures<br>That Help <em>Scale</em>.</h1>
     <div class="sys" aria-hidden="true">
-      <div class="sys-shell"><span class="sys-label">Shell · re-architect at each stage</span></div>
-      <div class="sys-kernel"><span class="sys-label">Kernel · fixed</span></div>
-      <div class="sys-kernel-mid"><span>values</span></div>
+      <div class="sys-shell">
+        <span class="sys-shell-tag">Shell</span>
+      </div>
+      <div class="sys-kernel">
+        <span class="sys-kernel-tag">Kernel</span>
+        <span class="sys-kernel-mid">values</span>
+      </div>
     </div>
+    <p class="hero-deck">The kernel, your non-negotiable values, stays fixed. The shell, how ownership and decisions actually work, needs to be rewritten at every growth stage.</p>
+    <div class="hero-meta"><span>Topics I Think About</span><span>02 of 05</span></div>
   </div>
 </section>
 
