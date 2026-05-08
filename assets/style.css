@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   SAMIR DEOLIKAR — PERSONAL WEBSITE
+   SAMIR DEOLIKAR · PERSONAL WEBSITE
    Shared stylesheet · v1.0
    Color palette: black ink, white paper, gold accents, brick rust
    ═══════════════════════════════════════════════ */
@@ -384,7 +384,7 @@ p strong { color: var(--ink); font-weight: 500; }
 .memoir-images--3 > :nth-child(2) { grid-row: 1; grid-column: 2; aspect-ratio: 4/3; }
 .memoir-images--3 > :nth-child(3) { grid-row: 2; grid-column: 1 / span 2; aspect-ratio: 16/9; }
 
-/* portrait modifier — use when one or more images are portrait orientation */
+/* portrait modifier: use when one or more images are portrait orientation */
 .memoir-images--3-portrait {
   grid-template-columns: 1.4fr 1fr;
   grid-template-rows: 1fr 1fr;
