@@ -27,6 +27,23 @@
     .split-text h2 { margin-bottom: 20px; }
     .split-text p { margin-bottom: 16px; }
 
+    /* clickable split panels (link to landing pages) */
+    .split-panel-link { text-decoration: none; color: inherit; cursor: pointer; }
+    .split-panel-link:hover .split-image img { transform: scale(1.04); }
+    .split-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .split-panel-link:hover .split-cta { color: var(--gold-light); gap: 16px; }
+
     /* compact variant: image height = text content height, crop from bottom only */
     .split-panel--compact { min-height: 0; }
     .split-panel--compact .split-image { position: relative; }
@@ -142,7 +159,7 @@
 </section>
 
 <!-- THEATER -->
-<div class="split-panel reveal">
+<a class="split-panel split-panel-link reveal" href="theater.html">
   <div class="split-image">
     <img src="assets/images/creativity-2.jpg" alt="Theater" loading="eager">
   </div>
@@ -151,21 +168,23 @@
     <h2>Leading without having all the answers upfront</h2>
     <p>Writing, directing, and producing plays has taught me how to lead without having all the answers upfront. Every production starts with ambiguity (a rough idea, a blank stage) and it becomes something real through collaboration, iteration, and trust.</p>
     <p>It's one of the most practical trainings I've had in vision, alignment, and execution under pressure.</p>
+    <span class="split-cta">Explore Theater <span aria-hidden="true">→</span></span>
   </div>
-</div>
+</a>
 
 <!-- EXPRESSION -->
-<div class="split-panel split-panel--compact reveal">
+<a class="split-panel split-panel--compact split-panel-link reveal" href="expressions.html">
   <div class="split-text" style="background: var(--surface);">
     <span class="eyebrow">Expression</span>
     <h2>Experience design, storytelling, and shared purpose</h2>
     <p>Bringing large-scale cultural experiences to life has shaped how I think about experience design, storytelling, and shared purpose. From idea to execution, these projects involve creative problem-solving, hard constraints, and the challenge of moving people emotionally.</p>
     <p>It's helped me lead with more empathy, attention to detail, and imagination.</p>
+    <span class="split-cta">Explore Expressions <span aria-hidden="true">→</span></span>
   </div>
   <div class="split-image">
     <img src="assets/images/creativity-3.jpg" alt="Expression" loading="eager">
   </div>
-</div>
+</a>
 
 <!-- CALLOUT -->
 <div class="callout-box reveal" style="margin: 0;">
