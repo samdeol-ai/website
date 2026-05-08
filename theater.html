@@ -1,171 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Theater · Samir Deolikar</title>
-  <meta name="description" content="A chronological record of Samir Deolikar's work in theater: writing, directing, producing, and the lessons each production brought.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="A chronological record of Samir Deolikar's work in theater: writing, directing, producing, and the lessons each production brought.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    .hero-memoir { position: relative; min-height: 70vh; display: flex; align-items: flex-end; overflow: hidden; }
-    .hero-memoir .hero-bg { position: absolute; inset: 0; }
-    .hero-memoir .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-memoir .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.4) 55%, rgba(13,13,13,0.15) 100%); }
-    .hero-memoir .hero-inner { position: relative; z-index: 2; padding-bottom: 64px; }
-    .hero-memoir h1 { color: var(--paper); max-width: 720px; }
-    .hero-memoir h1 em { color: var(--gold-light); font-style: italic; }
-    .hero-memoir p { color: rgba(255,255,255,0.7); max-width: 520px; margin-top: 18px; }
+    .hero-memoir {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-memoir .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-memoir .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-memoir .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13, 13, 13, 0.92) 0%, rgba(13, 13, 13, 0.4) 55%, rgba(13, 13, 13, 0.15) 100%);
+    }
+
+    .hero-memoir .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 64px;
+    }
+
+    .hero-memoir h1 {
+      color: var(--paper);
+      max-width: 720px;
+    }
+
+    .hero-memoir h1 em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .hero-memoir p {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 520px;
+      margin-top: 18px;
+    }
 
     @media (max-width: 900px) {
-      .hero-memoir { min-height: 58vh; }
+      .hero-memoir {
+        min-height: 58vh;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav-logo">Samir Deolikar</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="blogs.html">Blogs</a></li>
-    <li><a href="creativity.html" class="active">Creativity</a></li>
-    <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
-  </ul>
-  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="blogs.html">Blogs</a>
-  <a href="creativity.html">Creativity</a>
-  <a href="contact.html">Get in touch</a>
-</div>
-
-<!-- HERO -->
-<section class="hero-memoir">
-  <div class="hero-bg">
-    <img src="assets/images/index-2.jpg" alt="Theater" loading="eager">
-  </div>
-  <div class="container hero-inner">
-    <span class="eyebrow animate-1">Theater</span>
-    <h1 class="animate-2">A life lived <em>on stage</em><br>and behind it</h1>
-    <p class="animate-3">Writing, directing, producing. A chronological record of the productions and moments that shaped how I think about leadership, collaboration, and craft.</p>
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="section reveal">
-  <div class="container--narrow">
-    <p style="font-size: 19px; color: var(--ink); line-height: 1.85;">Theater has been my longest-running creative pursuit. Each production has taught me something I couldn't have learned in a meeting room: about ambiguity, about timing, about trust.</p>
-    <p style="margin-top: 20px;">This page grows as I revisit older work and add new chapters. Newest entries appear on top.</p>
-  </div>
-</section>
-
-<!-- MEMOIR ENTRIES -->
-<div class="memoir-stack">
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">August 2014</span>
-      <h2 class="memoir-title">Naatak: When Feelings Take the Stage</h2>
-      <p class="memoir-desc">Wrote and directed <em>Naatak</em>, a play built on a single, mischievous premise: when inner feelings get acted upon, they don't stay inner. They walk onstage, take seats at the dinner table, change the temperature of a room. The piece followed the small, comic, painful physics of a relationship, with music and humor carrying the weight of subjects too tender to say plainly.</p>
-    </div>
-    <div class="memoir-images memoir-images--3-portrait">
-      <img src="assets/images/theater/theater-2014-08-3.jpg" alt="A man standing behind a woman seated in a chair, soft warm light" loading="lazy">
-      <img src="assets/images/theater/theater-2014-08-1.jpg" alt="A couple onstage, hands stretched toward each other across an unseen barrier" loading="lazy">
-      <img src="assets/images/theater/theater-2014-08-2.jpg" alt="A woman standing as a seated man in a yellow shirt gestures toward her" loading="lazy">
-    </div>
-  </article>
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">January 2012</span>
-      <h2 class="memoir-title">Shodh: A Farmer at the Edge</h2>
-      <p class="memoir-desc">Wrote and directed <em>Shodh</em>, a search for hope set against the farmer-suicide crisis. The first half dwells in silence: a man, his wife, and the slow weight of a failing field. The play asked a quiet, urgent question: when the world stops giving back, where does inner strength actually come from? The drama earns its name by refusing easy answers.</p>
-    </div>
-    <div class="memoir-images memoir-images--3">
-      <img src="assets/images/theater/theater-2012-01-4.jpg" alt="Close-up: farmer in red headband seated beside his wife in despair" loading="lazy">
-      <img src="assets/images/theater/theater-2012-01-2.jpg" alt="Three dancers in traditional costumes against a village backdrop" loading="lazy">
-      <img src="assets/images/theater/theater-2012-01-3.jpg" alt="Wide stage shot: farmer and wife seated in darkness with a single red light" loading="lazy">
-    </div>
-  </article>
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">January 2012</span>
-      <h2 class="memoir-title">Shodh: The Flock that Held Him Back</h2>
-      <p class="memoir-desc">The answer arrives on hooves: the farmer's sheep and goats, masked and mythic, become unlikely friends and quiet voices of hope. <em>Shodh</em> makes its case gently. Positivity often lives in the company we keep, and the deepest friendships don't always speak our language. The play won Best Director and runner-up for script, and proved its argument by moving an audience to listen.</p>
-    </div>
-    <div class="memoir-images memoir-images--3">
-      <img src="assets/images/theater/theater-2012-01-6.jpg" alt="Two masked sheep characters facing the seated farmer on stage" loading="lazy">
-      <img src="assets/images/theater/theater-2012-01-1.jpg" alt="Post-show moment on stage with microphone in hand" loading="lazy">
-      <img src="assets/images/theater/theater-2012-01-5.jpg" alt="Ensemble of actors in white sheep costumes and masks on stage" loading="lazy">
-    </div>
-  </article>
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">January 2011</span>
-      <h2 class="memoir-title">Jungle: When the Tigers Spoke</h2>
-      <p class="memoir-desc">Wrote and directed <em>Jungle</em>, a satirical drama where two tigers, painted gold and striped, took the stage to tell humans what extinction looks like from inside the species. Sarcastic humor framed the urgent message: poaching, habitat loss, and an ecosystem unraveling. The play swept Expressions '11, winning 17 of 20 awards (including Best Director and Best Writer) and earned coverage in the local press.</p>
-    </div>
-    <div class="memoir-images memoir-images--3-portrait">
-      <img src="assets/images/theater/theater-2011-01-3.jpg" alt="Eastside Plus newspaper coverage of the play, February 2011" loading="lazy">
-      <img src="assets/images/theater/theater-2011-01-2.jpg" alt="Two actors painted as tigers on stage in mid-performance" loading="lazy">
-      <img src="assets/images/theater/theater-2011-01-1.jpg" alt="Behind the scenes: set crew painting the mountain and forest backdrop" loading="lazy">
-    </div>
-  </article>
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">August 2009</span>
-      <h2 class="memoir-title">When the Forefathers Spoke</h2>
-      <p class="memoir-desc">Wrote, directed, and acted in a comedy-drama about a young couple tempted to sell the family inheritance for an easy payday. The twist arrives when their forefathers step out of the framed windows on stage and remind them what tradition is actually worth: that wealth lives not in the selling, but in the keeping, and the building from what's already been handed down.</p>
-    </div>
-    <div class="memoir-images memoir-images--3">
-      <img src="assets/images/theater/theater-2009-08-1.jpg" alt="A scene from the play: three characters on stage" loading="lazy">
-      <img src="assets/images/theater/theater-2009-08-2.jpg" alt="A scene from the play: confrontation with bag in hand" loading="lazy">
-      <img src="assets/images/theater/theater-2009-08-3.jpg" alt="A scene from the play: couple seated, forefathers framed in windows" loading="lazy">
-    </div>
-  </article>
-
-  <article class="memoir-entry reveal">
-    <div class="memoir-text">
-      <span class="memoir-date">August 2008</span>
-      <h2 class="memoir-title">Incomplete Countdown: After the Final Whistle</h2>
-      <p class="memoir-desc">I created and collaborated with a celebrated film and theater playwright (who also wrote and directed) to bring <em>Incomplete Countdown</em> to life. The play follows a football player searching for purpose after losing his legs, and was my first chance to work alongside seasoned professionals. The experience reached well beyond rehearsal, into lights, sound, and stage building, teaching me how a production actually comes alive.</p>
-    </div>
-    <div class="memoir-images memoir-images--3">
-      <img src="assets/images/theater/theater-2008-08-1.jpg" alt="On-stage band with a dancer in a green dress on the right" loading="lazy">
-      <img src="assets/images/theater/theater-2008-08-2.jpg" alt="The wheelchair-bound football player onstage with the band behind" loading="lazy">
-      <img src="assets/images/theater/theater-2008-08-3.jpg" alt="Full cast performing on stage with visible audience" loading="lazy">
-    </div>
-  </article>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
-  <nav class="footer-links">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Samir Deolikar</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="creativity.html" class="active">Creativity</a></li>
+      <li class="nav-cta"><a href="contact.html">Get in touch</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="blogs.html">Blogs</a>
     <a href="creativity.html">Creativity</a>
-    <a href="contact.html">Contact</a>
-    <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
-  </nav>
-</footer>
+    <a href="contact.html">Get in touch</a>
+  </div>
 
-<script>
-  function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+  <!-- HERO -->
+  <section class="hero-memoir">
+    <div class="hero-bg">
+      <img src="assets/images/index-2.jpg" alt="Theater" loading="eager">
+    </div>
+    <div class="container hero-inner">
+      <span class="eyebrow animate-1">Theater</span>
+      <h1 class="animate-2">A life lived <em>on stage</em><br>and behind it</h1>
+      <p class="animate-3">Writing, directing, producing. A chronological record of the productions and moments that
+        shaped how I think about leadership, collaboration, and craft.</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section reveal">
+    <div class="container--narrow">
+      <p style="font-size: 19px; color: var(--ink); line-height: 1.85;">Theater has been my longest-running creative
+        pursuit. Each production has taught me something I couldn't have learned in a meeting room: about ambiguity,
+        about timing, about trust.</p>
+      <p style="margin-top: 20px;">This page grows as I revisit older work and add new chapters. Newest entries appear
+        on top.</p>
+    </div>
+  </section>
+
+  <!-- MEMOIR ENTRIES -->
+  <div class="memoir-stack">
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">August 2014</span>
+        <h2 class="memoir-title">Naatak: When Feelings Take the Stage</h2>
+        <p class="memoir-desc">Wrote and directed <em>Naatak</em>, a play built on a single, mischievous premise: when
+          inner feelings get acted upon, they don't stay inner. They walk onstage, take seats at the dinner table,
+          change the temperature of a room. The piece followed the small, comic, painful physics of a relationship, with
+          music and humor carrying the weight of subjects too tender to say plainly.</p>
+      </div>
+      <div class="memoir-images memoir-images--3-portrait">
+        <img src="assets/images/theater/theater-2014-08-3.jpg"
+          alt="A man standing behind a woman seated in a chair, soft warm light" loading="lazy">
+        <img src="assets/images/theater/theater-2014-08-1.jpg"
+          alt="A couple onstage, hands stretched toward each other across an unseen barrier" loading="lazy">
+        <img src="assets/images/theater/theater-2014-08-2.jpg"
+          alt="A woman standing as a seated man in a yellow shirt gestures toward her" loading="lazy">
+      </div>
+    </article>
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">January 2012</span>
+        <h2 class="memoir-title">Shodh: A Farmer at the Edge</h2>
+        <p class="memoir-desc">Wrote and directed <em>Shodh</em>, a search for hope set against the farmer-suicide
+          crisis. The first half dwells in silence: a man, his wife, and the slow weight of a failing field. The play
+          asked a quiet, urgent question: when the world stops giving back, where does inner strength actually come
+          from? The drama earns its name by refusing easy answers.</p>
+      </div>
+      <div class="memoir-images memoir-images--3">
+        <img src="assets/images/theater/theater-2012-01-4.jpg"
+          alt="Close-up: farmer in red headband seated beside his wife in despair" loading="lazy">
+        <img src="assets/images/theater/theater-2012-01-2.jpg"
+          alt="Three dancers in traditional costumes against a village backdrop" loading="lazy">
+        <img src="assets/images/theater/theater-2012-01-3.jpg"
+          alt="Wide stage shot: farmer and wife seated in darkness with a single red light" loading="lazy">
+      </div>
+    </article>
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">January 2012</span>
+        <h2 class="memoir-title">Shodh: The Flock that Held Him Back</h2>
+        <p class="memoir-desc">The answer arrives on hooves: the farmer's sheep and goats, masked and mythic, become
+          unlikely friends and quiet voices of hope. <em>Shodh</em> makes its case gently. Positivity often lives in the
+          company we keep, and the deepest friendships don't always speak our language. The play won Best Director and
+          runner-up for script, and proved its argument by moving an audience to listen.</p>
+      </div>
+      <div class="memoir-images memoir-images--3">
+        <img src="assets/images/theater/theater-2012-01-6.jpg"
+          alt="Two masked sheep characters facing the seated farmer on stage" loading="lazy">
+        <img src="assets/images/theater/theater-2012-01-1.jpg" alt="Post-show moment on stage with microphone in hand"
+          loading="lazy">
+        <img src="assets/images/theater/theater-2012-01-5.jpg"
+          alt="Ensemble of actors in white sheep costumes and masks on stage" loading="lazy">
+      </div>
+    </article>
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">January 2011</span>
+        <h2 class="memoir-title">Jungle: When the Tigers Spoke</h2>
+        <p class="memoir-desc">Wrote and directed <em>Jungle</em>, a satirical drama where two tigers, painted gold and
+          striped, took the stage to tell humans what extinction looks like from inside the species. Sarcastic humor
+          framed the urgent message: poaching, habitat loss, and an ecosystem unraveling. The play swept Expressions
+          '11, winning 17 of 20 awards (including Best Director and Best Writer) and earned coverage in the local press.
+        </p>
+      </div>
+      <div class="memoir-images memoir-images--3-portrait">
+        <img src="assets/images/theater/theater-2011-01-3.jpg"
+          alt="Eastside Plus newspaper coverage of the play, February 2011" loading="lazy">
+        <img src="assets/images/theater/theater-2011-01-2.jpg"
+          alt="Two actors painted as tigers on stage in mid-performance" loading="lazy">
+        <img src="assets/images/theater/theater-2011-01-1.jpg"
+          alt="Behind the scenes: set crew painting the mountain and forest backdrop" loading="lazy">
+      </div>
+    </article>
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">August 2009</span>
+        <h2 class="memoir-title">When the Forefathers Spoke</h2>
+        <p class="memoir-desc">Wrote, directed, and acted in a comedy-drama about a young couple tempted to sell the
+          family inheritance for an easy payday. The twist arrives when their forefathers step out of the framed windows
+          on stage and remind them what tradition is actually worth: that wealth lives not in the selling, but in the
+          keeping, and the building from what's already been handed down.</p>
+      </div>
+      <div class="memoir-images memoir-images--3">
+        <img src="assets/images/theater/theater-2009-08-1.jpg" alt="A scene from the play: three characters on stage"
+          loading="lazy">
+        <img src="assets/images/theater/theater-2009-08-2.jpg"
+          alt="A scene from the play: confrontation with bag in hand" loading="lazy">
+        <img src="assets/images/theater/theater-2009-08-3.jpg"
+          alt="A scene from the play: couple seated, forefathers framed in windows" loading="lazy">
+      </div>
+    </article>
+
+    <article class="memoir-entry reveal">
+      <div class="memoir-text">
+        <span class="memoir-date">August 2008</span>
+        <h2 class="memoir-title">Incomplete Countdown: After the Final Whistle</h2>
+        <p class="memoir-desc">I created and collaborated with a celebrated film and theater playwright (who also wrote
+          and directed) to bring <em>Incomplete Countdown</em> to life. The play follows a football player searching for
+          purpose after losing his legs. It was my first chance to collaborate alongside seasoned professionals. The
+          experience reached well beyond rehearsal, into lights, sound, and stage building, teaching me how prfessionals
+          think and create.</p>
+      </div>
+      <div class="memoir-images memoir-images--3">
+        <img src="assets/images/theater/theater-2008-08-1.jpg"
+          alt="On-stage band with a dancer in a green dress on the right" loading="lazy">
+        <img src="assets/images/theater/theater-2008-08-2.jpg"
+          alt="The wheelchair-bound football player onstage with the band behind" loading="lazy">
+        <img src="assets/images/theater/theater-2008-08-3.jpg" alt="Full cast performing on stage with visible audience"
+          loading="lazy">
+      </div>
+    </article>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+    <nav class="footer-links">
+      <a href="about.html">About</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="creativity.html">Creativity</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/samirdeolikar" target="_blank">LinkedIn</a>
+    </nav>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
+
 </html>
