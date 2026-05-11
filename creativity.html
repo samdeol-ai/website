@@ -28,21 +28,77 @@
     .split-text p { margin-bottom: 16px; }
 
     /* clickable split panels (link to landing pages) */
-    .split-panel-link { text-decoration: none; color: inherit; cursor: pointer; }
-    .split-panel-link:hover .split-image img { transform: scale(1.04); }
-    .split-cta {
+    .split-panel-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+    }
+    .split-panel-link:hover { box-shadow: inset 0 0 0 3px var(--gold); }
+    .split-panel-link:hover .split-image img { transform: scale(1.06); }
+
+    /* floating corner badge on image (always visible) */
+    .split-image { position: relative; }
+    .split-badge {
+      position: absolute;
+      top: 24px; right: 24px;
+      z-index: 3;
+      background: rgba(13,13,13,0.82);
+      color: var(--gold-light);
+      padding: 9px 16px;
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 24px;
+      border: 1px solid rgba(184,134,11,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      transition: color 0.2s, gap 0.2s;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, gap 0.25s ease, transform 0.25s ease;
     }
-    .split-panel-link:hover .split-cta { color: var(--gold-light); gap: 16px; }
+    .split-panel-link:hover .split-badge {
+      background: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
+      gap: 14px;
+      transform: scale(1.04);
+    }
+
+    /* bold solid CTA button at bottom of split-text */
+    .split-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--ink);
+      padding: 18px 30px;
+      margin-top: 36px;
+      align-self: flex-start;
+      border: 2px solid var(--ink);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, gap 0.25s ease, transform 0.25s ease;
+    }
+    .split-cta::after {
+      content: '→';
+      font-size: 17px;
+      transition: transform 0.25s ease;
+    }
+    .split-panel-link:hover .split-cta {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      gap: 20px;
+      transform: translateX(3px);
+    }
+    .split-panel-link:hover .split-cta::after { transform: translateX(4px); }
 
     /* compact variant: image height = text content height, crop from bottom only */
     .split-panel--compact { min-height: 0; }
@@ -161,6 +217,7 @@
 <!-- THEATER -->
 <a class="split-panel split-panel-link reveal" href="theater.html">
   <div class="split-image">
+    <span class="split-badge">The Memoirs <span aria-hidden="true">↗</span></span>
     <img src="assets/images/creativity-2.jpg" alt="Theater" loading="eager">
   </div>
   <div class="split-text">
@@ -168,7 +225,7 @@
     <h2>Leading without having all the answers upfront</h2>
     <p>Writing, directing, and producing plays has taught me how to lead without having all the answers upfront. Every production starts with ambiguity (a rough idea, a blank stage) and it becomes something real through collaboration, iteration, and trust.</p>
     <p>It's one of the most practical trainings I've had in vision, alignment, and execution under pressure.</p>
-    <span class="split-cta">Explore Theater <span aria-hidden="true">→</span></span>
+    <span class="split-cta">Step Behind the Curtain</span>
   </div>
 </a>
 
@@ -179,9 +236,10 @@
     <h2>Experience design, storytelling, and shared purpose</h2>
     <p>Bringing large-scale cultural experiences to life has shaped how I think about experience design, storytelling, and shared purpose. From idea to execution, these projects involve creative problem-solving, hard constraints, and the challenge of moving people emotionally.</p>
     <p>It's helped me lead with more empathy, attention to detail, and imagination.</p>
-    <span class="split-cta">Explore Expressions <span aria-hidden="true">→</span></span>
+    <span class="split-cta">Explore the Stories</span>
   </div>
   <div class="split-image">
+    <span class="split-badge">The Memoirs <span aria-hidden="true">↗</span></span>
     <img src="assets/images/creativity-3.jpg" alt="Expression" loading="eager">
   </div>
 </a>
