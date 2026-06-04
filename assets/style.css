@@ -406,10 +406,21 @@ p strong { color: var(--ink); font-weight: 500; }
   .memoir-images--3 > :nth-child(1) { grid-row: 1; grid-column: 1; aspect-ratio: 4/3; }
   .memoir-images--3 > :nth-child(2) { grid-row: 1; grid-column: 2; aspect-ratio: 4/3; }
   .memoir-images--3 > :nth-child(3) { grid-row: 2; grid-column: 1 / span 2; aspect-ratio: 16/9; }
-  .memoir-images--3-portrait { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
-  .memoir-images--3-portrait > :nth-child(1) { grid-row: 1; grid-column: 1 / span 2; aspect-ratio: 3/4; }
-  .memoir-images--3-portrait > :nth-child(2) { grid-row: 2; grid-column: 1; aspect-ratio: 1/1; }
-  .memoir-images--3-portrait > :nth-child(3) { grid-row: 2; grid-column: 2; aspect-ratio: 1/1; }
+  /* portrait variant on mobile: single column, natural aspect ratio (no cropping) */
+  .memoir-images--3-portrait { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .memoir-images--3-portrait > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+  .memoir-images--3-portrait > :nth-child(1),
+  .memoir-images--3-portrait > :nth-child(2),
+  .memoir-images--3-portrait > :nth-child(3) {
+    grid-row: auto;
+    grid-column: 1;
+    aspect-ratio: auto;
+  }
 }
 
 /* ── SCROLL REVEAL ── */
