@@ -74,6 +74,13 @@
       transition: background 0.25s ease, gap 0.25s ease, transform 0.25s ease;
     }
     .creativity-panel:hover .creativity-panel-visit { background: var(--paper); gap: 14px; transform: translateX(-2px); }
+
+    /* creativity section heading row (h2 + CTA button on same line, mimics "Latest Blogs / All blogs" pattern) */
+    .creativity-heading-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid rgba(184,134,11,0.25); padding-bottom: 32px; }
+    .creativity-heading-row h2 { max-width: 560px; margin-top: 8px; }
+    .creativity-heading-cta { flex-shrink: 0; align-self: flex-end; }
+    .creativity-lead { margin-top: 20px; max-width: 620px; color: rgba(255,255,255,0.6); font-size: 15px; }
+    .creativity-bottom-spacer { padding-bottom: 72px; }
     .creativity-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.1) 60%);
@@ -224,9 +231,15 @@
 
 <!-- CREATIVITY PREVIEW -->
 <section class="section--dark section" style="padding-top: 0; padding-bottom: 0;">
-  <div class="container" style="padding-top: 72px; padding-bottom: 48px;">
-    <span class="eyebrow">Creativity Beyond Work</span>
-    <h2 style="max-width: 560px; margin-top: 8px;">Creativity sharpens how I lead, especially when the path isn't clear</h2>
+  <div class="container" style="padding-top: 72px; padding-bottom: 40px;">
+    <div class="creativity-heading-row">
+      <div>
+        <span class="eyebrow">Creativity Beyond Work</span>
+        <h2>Creativity sharpens how I lead, especially when the path isn't clear</h2>
+      </div>
+      <a href="creativity.html" class="btn btn--gold creativity-heading-cta">My Creative Take</a>
+    </div>
+    <p class="creativity-lead">Two ways I explore that idea, in practice. Choose one to step into.</p>
   </div>
   <div class="creativity-grid">
     <a class="creativity-panel" href="theater.html">
@@ -246,9 +259,7 @@
       </div>
     </a>
   </div>
-  <div class="container" style="padding-top: 40px; padding-bottom: 72px;">
-    <a href="creativity.html" class="btn btn--gold">My Creative Take</a>
-  </div>
+  <div class="creativity-bottom-spacer"></div>
 </section>
 
 <!-- WRITING PREVIEW -->
