@@ -21,91 +21,100 @@
       .hero-memoir { min-height: 58vh; }
     }
 
-    /* ── ESSAY (Every Creation Begins with an Idea) ── */
-    .essay-wrap { max-width: 900px; margin: 0 auto; padding: 24px 48px 96px; }
-    .essay-header { text-align: left; margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+    /* ── ESSAY HEADER ── */
+    .essay-header { padding: 72px 48px 56px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+    .essay-header-inner { max-width: 900px; margin: 0 auto; }
     .essay-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: #fff; background: var(--rust); display: inline-block; padding: 5px 14px; margin-bottom: 24px; }
-    .essay-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4.5vw, 48px); font-weight: 700; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; max-width: 780px; }
+    .essay-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; max-width: 780px; margin-bottom: 32px; }
     .essay-title em { font-style: italic; color: var(--gold); }
+    .essay-lead-first { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(20px, 2.5vw, 26px); line-height: 1.5; color: var(--ink); max-width: 720px; margin-bottom: 22px; }
+    .essay-lead p { font-size: 17px; line-height: 1.85; color: var(--ink); max-width: 720px; margin-bottom: 18px; }
+    .essay-triplet { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); line-height: 1.8; margin: 20px 0 4px; }
+    .essay-triplet-final { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(20px, 2.4vw, 24px); color: var(--gold); margin-top: 4px; margin-bottom: 28px; }
 
-    .essay-lead { max-width: 680px; margin: 0 0 40px; }
-    .essay-lead p { color: var(--ink); font-size: 18px; line-height: 1.85; margin-bottom: 22px; }
-    .essay-lead p.lead-first { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(22px, 2.6vw, 26px); line-height: 1.5; color: var(--ink); margin-bottom: 28px; }
-    .essay-lead p.lead-triplet { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); line-height: 1.8; margin-bottom: 8px; }
-    .essay-lead p.lead-final { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--gold); margin-top: 8px; margin-bottom: 32px; }
+    /* ── PHASE PANEL (2-column split, mimics creativity.html) ── */
+    .phase-panel { display: grid; grid-template-columns: 1fr 1fr; min-height: 620px; border-top: 1px solid var(--rule); }
+    .phase-panel--reverse .phase-image-slot { order: 2; }
+    .phase-panel--reverse .phase-text-slot { order: 1; }
 
-    /* Range grid at top */
-    .essay-range { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin: 40px 0; }
-    .essay-range figure { margin: 0; overflow: hidden; aspect-ratio: 3/4; background: var(--surface); }
-    .essay-range img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
-    .essay-range figure:hover img { transform: scale(1.03); }
-    .essay-range-caption { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 12px; text-align: center; }
+    .phase-image-slot { overflow: hidden; background: var(--surface); position: relative; }
+    .phase-image-slot img { width: 100%; height: 100%; object-fit: cover; min-height: 520px; transition: transform 0.7s ease; display: block; }
+    .phase-image-slot:hover img { transform: scale(1.03); }
 
-    /* Phase blocks */
-    .essay-phase { margin: 80px 0; padding-top: 48px; border-top: 1px solid var(--rule); }
-    .phase-marker { display: flex; align-items: baseline; gap: 22px; margin-bottom: 18px; }
-    .phase-num { font-family: 'Playfair Display', serif; font-size: clamp(56px, 7vw, 84px); font-weight: 900; color: var(--gold); line-height: 0.9; letter-spacing: -0.02em; }
-    .phase-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rust); font-weight: 500; }
-    .phase-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 32px; max-width: 680px; }
-    .phase-prose { max-width: 680px; margin: 0 0 28px; }
-    .phase-prose p { font-size: 17px; line-height: 1.85; color: var(--ink); margin-bottom: 20px; }
-    .phase-prose p.short-line { color: var(--slate); font-size: 17px; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 12px; }
-    .phase-prose em { font-style: italic; color: var(--rust); font-weight: 500; }
+    /* Multi-image collage inside a phase image slot */
+    .phase-collage { display: grid; gap: 2px; background: var(--rule); width: 100%; height: 100%; min-height: 520px; }
+    .phase-collage--2 { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    .phase-collage--3 { grid-template-columns: 1.35fr 1fr; grid-template-rows: 1fr 1fr; }
+    .phase-collage--3 > figure:nth-child(1) { grid-row: 1 / span 2; grid-column: 1; }
+    .phase-collage--3 > figure:nth-child(2) { grid-row: 1; grid-column: 2; }
+    .phase-collage--3 > figure:nth-child(3) { grid-row: 2; grid-column: 2; }
+    .phase-collage figure { margin: 0; overflow: hidden; background: var(--surface); }
+    .phase-collage img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; transition: transform 0.7s ease; }
+    .phase-collage figure:hover img { transform: scale(1.03); }
 
-    .phase-quote { border-left: 4px solid var(--gold); background: var(--cream); padding: 28px 36px; margin: 40px 0; max-width: 680px; }
-    .phase-quote p { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 24px); font-style: italic; line-height: 1.5; color: var(--ink); margin: 0; }
+    .phase-text-slot { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; background: var(--paper); }
+    .phase-num-marker { display: flex; align-items: baseline; gap: 22px; margin-bottom: 16px; }
+    .phase-num { font-family: 'Playfair Display', serif; font-size: clamp(56px, 6.5vw, 78px); font-weight: 900; color: var(--gold); line-height: 0.9; letter-spacing: -0.02em; }
+    .phase-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rust); font-weight: 500; }
+    .phase-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.8vw, 30px); font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+    .phase-text-slot p { font-size: 16px; line-height: 1.8; color: var(--ink); margin-bottom: 14px; }
+    .phase-text-slot p.short-line { font-family: 'Playfair Display', serif; font-style: italic; color: var(--slate); margin-bottom: 6px; font-size: 17px; }
+    .phase-text-slot em { font-style: italic; color: var(--rust); font-weight: 500; }
+    .phase-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2vw, 22px); color: var(--ink); border-left: 3px solid var(--gold); padding: 6px 0 6px 22px; margin-top: 20px; line-height: 1.5; }
 
-    /* Image layouts */
-    .essay-image { margin: 44px 0; }
-    .essay-image figure { margin: 0; overflow: hidden; }
-    .essay-image img { width: 100%; height: auto; display: block; }
-    .essay-image figcaption { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+    /* ── REFINEMENT GALLERY (masonry, mimics creativity.html gallery-grid) ── */
+    .refinement-gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; gap: 2px; background: var(--rule); }
+    .refinement-gallery > div { overflow: hidden; min-height: 320px; background: var(--surface); }
+    .refinement-gallery img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.55s ease; }
+    .refinement-gallery > div:hover img { transform: scale(1.04); }
+    .refinement-gallery .tall { grid-row: span 2; min-height: 640px; }
+    .refinement-gallery .wide { grid-column: span 2; min-height: 320px; }
 
-    .essay-image--single figure { max-height: 640px; display: flex; align-items: center; justify-content: center; background: var(--cream); }
-    .essay-image--single img { object-fit: contain; max-height: 640px; }
+    /* ── CLOSING BLOCKS ── */
+    .essay-closing-callout { background: var(--ink); color: var(--paper); padding: 88px 48px; }
+    .essay-closing-callout .container--narrow { max-width: 760px; margin: 0 auto; text-align: center; }
+    .essay-closing-callout .eyebrow { background: transparent; border: 1px solid var(--gold); color: var(--gold-light); margin-bottom: 24px; }
+    .essay-closing-callout h2 { font-family: 'Playfair Display', serif; color: var(--paper); font-size: clamp(28px, 4vw, 42px); line-height: 1.2; margin-bottom: 28px; }
+    .essay-closing-callout h2 em { color: var(--gold-light); font-style: italic; }
+    .essay-closing-callout p { color: rgba(255,255,255,0.75); font-size: 17px; line-height: 1.8; margin-bottom: 18px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .essay-closing-list { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-light); line-height: 2.4; margin: 36px auto 24px; padding: 26px 32px; border-top: 1px solid rgba(184,134,11,0.35); border-bottom: 1px solid rgba(184,134,11,0.35); max-width: 560px; text-align: left; }
+    .essay-closing-list div { display: block; }
 
-    .essay-image-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 44px 0; }
-    .essay-image-pair figure { margin: 0; overflow: hidden; }
-    .essay-image-pair img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/3; }
+    .essay-invitation { padding: 64px 48px; background: var(--cream); text-align: center; border-bottom: 1px solid var(--rule); }
+    .essay-invitation-inner { max-width: 720px; margin: 0 auto; }
+    .essay-invitation p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.2vw, 22px); line-height: 1.55; color: var(--ink); margin-bottom: 18px; }
+    .essay-invitation p:last-child { color: var(--gold); font-size: clamp(16px, 2vw, 20px); margin-bottom: 0; font-family: 'DM Mono', monospace; font-style: normal; letter-spacing: 0.16em; text-transform: uppercase; }
 
-    .essay-image-trio { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 4px; margin: 44px 0; min-height: 520px; }
-    .essay-image-trio figure { margin: 0; overflow: hidden; }
-    .essay-image-trio img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .essay-image-trio figure:nth-child(1) { grid-row: 1 / span 2; }
-    .essay-image-trio figure:nth-child(2) { grid-row: 1; grid-column: 2; }
-    .essay-image-trio figure:nth-child(3) { grid-row: 2; grid-column: 2; }
+    .essay-signoff { text-align: center; padding: 32px 48px 48px; }
+    .essay-signoff-name { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--ink); font-weight: 700; }
+    .essay-signoff-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
-    /* Closing block */
-    .essay-closing { margin-top: 96px; padding-top: 56px; border-top: 3px double var(--gold); }
-    .essay-closing-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .essay-closing-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 32px; max-width: 640px; }
-    .essay-closing-list { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rust); line-height: 2.4; margin: 32px 0; padding: 28px 32px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .essay-closing-list span { display: block; padding-left: 0; position: relative; }
-    .essay-closing-list span::before { content: '·'; color: var(--gold); margin-right: 12px; font-size: 16px; }
-    .essay-invitation { background: var(--ink); color: var(--paper); padding: 48px 44px; margin: 56px 0 24px; }
-    .essay-invitation p { color: rgba(255,255,255,0.85); font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.55; margin-bottom: 18px; }
-    .essay-invitation p:last-child { margin-bottom: 0; color: var(--gold-light); font-size: clamp(16px, 2vw, 20px); }
+    /* Refinement gallery header */
+    .refinement-header { padding-bottom: 32px; }
+    .refinement-header h2 { margin-top: 12px; max-width: 640px; }
+    .refinement-header p { margin-top: 16px; max-width: 640px; color: var(--muted); }
+    .refinement-gallery--flush { margin-bottom: 0; }
 
-    .essay-signoff { text-align: center; margin-top: 48px; padding-top: 32px; border-top: 0.5px solid var(--rule); }
-    .essay-signoff-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); }
-    .essay-signoff-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 900px) {
-      .essay-wrap { padding: 24px 24px 72px; }
-      .essay-range { grid-template-columns: 1fr; }
-      .essay-range figure { aspect-ratio: 4/3; }
-      .essay-image-pair { grid-template-columns: 1fr; }
-      .essay-image-pair img { aspect-ratio: 4/3; }
-      .essay-image-trio { grid-template-columns: 1fr; grid-template-rows: auto auto auto; min-height: 0; }
-      .essay-image-trio figure:nth-child(1),
-      .essay-image-trio figure:nth-child(2),
-      .essay-image-trio figure:nth-child(3) { grid-row: auto; grid-column: 1; }
-      .essay-image-trio img { aspect-ratio: 4/3; }
-      .phase-marker { gap: 16px; }
-      .phase-quote { padding: 22px 24px; }
-      .essay-invitation { padding: 32px 24px; }
-      .essay-closing-list { padding: 22px 24px; letter-spacing: 0.2em; }
+      .essay-header { padding: 48px 24px 40px; }
+      .phase-panel { grid-template-columns: 1fr; min-height: 0; }
+      .phase-panel--reverse .phase-image-slot { order: 1; }
+      .phase-panel--reverse .phase-text-slot { order: 2; }
+      .phase-image-slot img { min-height: 280px; max-height: 420px; }
+      .phase-collage { min-height: 0; grid-template-columns: 1fr 1fr; }
+      .phase-collage img { min-height: 160px; }
+      .phase-collage--3 { grid-template-rows: auto auto; }
+      .phase-collage--3 > figure:nth-child(1) { grid-row: 1; grid-column: 1 / span 2; }
+      .phase-collage--3 > figure:nth-child(2) { grid-row: 2; grid-column: 1; }
+      .phase-collage--3 > figure:nth-child(3) { grid-row: 2; grid-column: 2; }
+      .phase-collage--2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+      .phase-text-slot { padding: 40px 24px; }
+      .refinement-gallery { grid-template-columns: 1fr 1fr; }
+      .refinement-gallery .tall { grid-row: span 1; min-height: 320px; }
+      .refinement-gallery .wide { grid-column: span 2; min-height: 280px; }
+      .essay-closing-callout { padding: 56px 24px; }
+      .essay-invitation { padding: 44px 24px; }
     }
   </style>
 <!-- Google Analytics 4 -->
@@ -160,251 +169,216 @@
   </div>
 </section>
 
-<!-- ESSAY: Every Creation Begins with an Idea -->
-<article class="essay-wrap reveal">
-
-  <header class="essay-header">
+<!-- ESSAY HEADER -->
+<div class="essay-header reveal">
+  <div class="essay-header-inner">
     <div class="essay-eyebrow">Essay · June 2026</div>
     <h1 class="essay-title">Every creation begins with an <em>idea</em>.</h1>
-  </header>
-
-  <!-- OPENING -->
-  <div class="essay-lead">
-    <p class="lead-first">Over the years, I have realised that my hobbies are not really hobbies. They are simply different ways of expressing the same instinct: the desire to create.</p>
-    <p>Whether it is designing the interiors of a home, planning a house from scratch, helping friends bring their ideas to life, or spending weeks building elaborate decorations for our family's Ganpati festival, I have noticed that every project, regardless of its size, follows almost the same journey.</p>
-    <p class="lead-triplet">The materials change. The scale changes. The purpose changes.</p>
-    <p class="lead-final">The process never does.</p>
-    <p>This section is a collection of those expressions. More importantly, it is a reflection on the way I think when I build something. What follows is that process, broken into the six phases I have come to trust.</p>
+    <div class="essay-lead">
+      <p class="essay-lead-first">Over the years, I have realised that my hobbies are not really hobbies. They are simply different ways of expressing the same instinct: the desire to create.</p>
+      <p>Whether it is designing the interiors of a home, planning a house from scratch, helping friends bring their ideas to life, or spending weeks building elaborate decorations for our family's Ganpati festival, I have noticed that every project, regardless of its size, follows almost the same journey.</p>
+      <p class="essay-triplet">The materials change · The scale changes · The purpose changes</p>
+      <p class="essay-triplet-final">The process never does.</p>
+      <p>This section is a collection of those expressions. More importantly, it is a reflection on the way I think when I build something. What follows is that process, broken into the six phases I have come to trust.</p>
+    </div>
   </div>
+</div>
 
-  <div class="essay-range">
-    <figure>
-      <img src="assets/images/expressions/expressions-2026-06-03.jpg" alt="Hand-drawn floor plan sketch on paper" loading="lazy">
-    </figure>
-    <figure>
-      <img src="assets/images/expressions/expressions-2026-06-01.jpg" alt="Rooftop under construction with steel rebar grid, workers, and a jacaranda tree in the background" loading="lazy">
-    </figure>
-    <figure>
-      <img src="assets/images/expressions/expressions-2026-06-14.jpg" alt="Ganpati decoration with planets and stars as a cosmic backdrop" loading="lazy">
-    </figure>
+<!-- PHASE 01 · THE SPARK (image left, 2 sketches) -->
+<div class="phase-panel reveal">
+  <div class="phase-image-slot">
+    <div class="phase-collage phase-collage--2">
+      <figure>
+        <img src="assets/images/expressions/expressions-2026-06-08.jpg" alt="Hand-drawn temple design sketches with dimensions marked in Marathi" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/images/expressions/expressions-2026-06-03.jpg" alt="Hand-drawn architectural floor plan on paper" loading="lazy">
+      </figure>
+    </div>
   </div>
-  <div class="essay-range-caption">Interior sketches · a home from scratch · a festival at full scale</div>
-
-  <!-- PHASE 01 · THE SPARK -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">01</span>
       <span class="phase-label">The Spark</span>
     </div>
     <h2 class="phase-title">Everything starts with an idea.</h2>
+    <p>Sometimes it comes from connecting two unrelated things. Sometimes it is inspired by something I have seen. And occasionally, it comes from somewhere I cannot explain: an image that has quietly lived in my mind for years before deciding it is time to exist.</p>
+    <p>At this stage, nothing is practical. There are no budgets, no constraints, no timelines. Just imagination, a pencil, and paper.</p>
+    <div class="phase-quote">This is where creativity has complete freedom.</div>
+  </div>
+</div>
 
-    <div class="phase-prose">
-      <p>Sometimes it comes from connecting two unrelated things. Sometimes it is inspired by something I have seen. And occasionally, it comes from somewhere I cannot explain: an image that has quietly lived in my mind for years before deciding it is time to exist.</p>
-      <p>At this stage, nothing is practical. There are no budgets, no constraints, no timelines. Just imagination, a pencil, and paper.</p>
-    </div>
-
-    <div class="essay-image essay-image--single">
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-08.jpg" alt="Hand-drawn design sketches for a wooden temple: side view, front view, top view, and a 3D perspective, with dimensions marked in Marathi" loading="lazy">
-        <figcaption>Early temple sketches. Before budgets, before scale, just imagination on paper.</figcaption>
-      </figure>
-    </div>
-
-    <div class="phase-quote">
-      <p>This is where creativity has complete freedom.</p>
-    </div>
-  </section>
-
-  <!-- PHASE 02 · GROUNDING THE DREAM -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+<!-- PHASE 02 · GROUNDING THE DREAM (text left, image right) -->
+<div class="phase-panel phase-panel--reverse reveal">
+  <div class="phase-image-slot">
+    <img src="assets/images/expressions/expressions-2026-06-09.jpg" alt="A white paper architectural model of a two-storey house on a foam-board base" loading="lazy">
+  </div>
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">02</span>
       <span class="phase-label">Grounding the Dream</span>
     </div>
     <h2 class="phase-title">An idea without reality remains a dream.</h2>
+    <p>This is where imagination meets practicality. I begin asking difficult questions.</p>
+    <p>Can this actually be built? What will it cost? How much time will it take? Which approach is realistic? Will the final outcome justify the effort?</p>
+    <p>This phase is less glamorous than dreaming, but it is incredibly important. It transforms an exciting concept into something that can actually come to life. A sketch becomes a model. A model becomes a room. A room becomes a home.</p>
+    <div class="phase-quote">The dream doesn't disappear. It simply finds its feet.</div>
+  </div>
+</div>
 
-    <div class="phase-prose">
-      <p>This is where imagination meets practicality. I begin asking difficult questions.</p>
-      <p>Can this actually be built? What will it cost? How much time will it take? Which approach is realistic? Will the final outcome justify the effort?</p>
-      <p>This phase is less glamorous than dreaming, but it is incredibly important. It transforms an exciting concept into something that can actually come to life. A sketch becomes a model. A model becomes a room. A room becomes a home.</p>
-    </div>
-
-    <div class="essay-image">
+<!-- PHASE 03 · WORKING AROUND CONSTRAINTS (image left, 3 in-progress construction shots) -->
+<div class="phase-panel reveal">
+  <div class="phase-image-slot">
+    <div class="phase-collage phase-collage--3">
       <figure>
-        <img src="assets/images/expressions/expressions-2026-06-09.jpg" alt="A white paper architectural model of a two-storey house sitting on a foam-board base in a living room" loading="lazy">
-        <figcaption>A first architectural model. When an idea finally becomes something you can walk around.</figcaption>
+        <img src="assets/images/expressions/expressions-2026-06-04.jpg" alt="A flame tree in full bloom seen from a rooftop under construction, steel rebar in the foreground" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/images/expressions/expressions-2026-06-01.jpg" alt="Rooftop rebar construction with workers and a jacaranda tree in the background" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/images/expressions/expressions-2026-06-05.jpg" alt="Interior demolition and renovation in progress, with two workers cutting into an archway" loading="lazy">
       </figure>
     </div>
-
-    <div class="phase-quote">
-      <p>The dream doesn't disappear. It simply finds its feet.</p>
-    </div>
-  </section>
-
-  <!-- PHASE 03 · WORKING AROUND CONSTRAINTS -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+  </div>
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">03</span>
       <span class="phase-label">Working Around Constraints</span>
     </div>
     <h2 class="phase-title">No project is ever built in ideal conditions.</h2>
+    <p class="short-line">Budgets are limited.</p>
+    <p class="short-line">Time is limited.</p>
+    <p class="short-line">Materials are unavailable.</p>
+    <p class="short-line">Weather interferes.</p>
+    <p class="short-line">People have different schedules.</p>
+    <p>Instead of fighting these realities, I enjoy finding ways around them. This is where <em>frugality meets creativity</em>. Some things are worth investing in. Some things can be achieved differently.</p>
+    <p>When I built my house, seasons mattered as much as materials. In India, even planning construction around the monsoon can make a significant difference. Every constraint becomes another design parameter rather than an obstacle. Often, the most creative solutions emerge precisely because something wasn't available.</p>
+  </div>
+</div>
 
-    <div class="phase-prose">
-      <p class="short-line">Budgets are limited.</p>
-      <p class="short-line">Time is limited.</p>
-      <p class="short-line">Materials are unavailable.</p>
-      <p class="short-line">Weather interferes.</p>
-      <p class="short-line">People have different schedules.</p>
-      <p>Instead of fighting these realities, I enjoy finding ways around them. This is where <em>frugality meets creativity</em>. Some things are worth investing in. Some things can be achieved differently without sacrificing the outcome.</p>
-      <p>When I built my house, seasons mattered as much as materials. In India, even planning construction around the monsoon can make a significant difference. A slab that has to set in the rain is a different problem than one that sets under a dry summer sky. Every constraint becomes another design parameter rather than an obstacle.</p>
-    </div>
-
-    <div class="essay-image-pair">
+<!-- PHASE 04 · THE PIVOT (text left, image right, 3 in-progress decoration shots) -->
+<div class="phase-panel phase-panel--reverse reveal">
+  <div class="phase-image-slot">
+    <div class="phase-collage phase-collage--3">
       <figure>
-        <img src="assets/images/expressions/expressions-2026-06-04.jpg" alt="A flame tree in full red bloom seen from the rooftop of a house under construction, with the steel rebar grid in the foreground" loading="lazy">
+        <img src="assets/images/expressions/expressions-2026-06-06.jpg" alt="Branch structure being decorated with tiny green lanterns and leaves during setup" loading="lazy">
       </figure>
       <figure>
-        <img src="assets/images/expressions/expressions-2026-06-05.jpg" alt="Interior demolition and renovation in progress, with two workers on a ladder cutting into an archway" loading="lazy">
+        <img src="assets/images/expressions/expressions-2026-06-10.jpg" alt="LED string lights being installed on a wooden panel, tools scattered on the floor" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/images/expressions/expressions-2026-06-07.jpg" alt="Detail of a small bird tucked amongst white and yellow silk flowers" loading="lazy">
       </figure>
     </div>
-
-    <div class="phase-prose">
-      <p>Often, the most creative solutions emerge precisely because something wasn't available.</p>
-    </div>
-  </section>
-
-  <!-- PHASE 04 · THE PIVOT -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+  </div>
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">04</span>
       <span class="phase-label">The Pivot</span>
     </div>
     <h2 class="phase-title">Ideas almost never look the way they did inside your head.</h2>
+    <p>This is perhaps my favourite stage. Once materials start coming together, unexpected combinations appear. Some work beautifully. Others simply don't. The important part is recognising that early, and being willing to change direction without abandoning the vision.</p>
+    <p>I remember one Ganpati decoration where I reused discarded soft drink bottles to build the background. Initially, it looked terrible. Instead of giving up, I started experimenting with the bottles themselves: different colours, shapes, arrangements. When the light finally hit them at the right angle, the plastic caught it like glass.</p>
+    <p>Suddenly those bottles became <em>flower petals</em> instead of waste. Nothing had fundamentally changed. Only the perspective had.</p>
+    <div class="phase-quote">That is the power of pivoting.</div>
+  </div>
+</div>
 
-    <div class="phase-prose">
-      <p>This is perhaps my favourite stage.</p>
-      <p>Once materials start coming together, unexpected combinations appear. Some work beautifully. Others simply don't. The important part is recognising that early and being willing to change direction without abandoning the vision.</p>
-      <p>I remember one Ganpati decoration where I reused discarded soft drink bottles to build the background. Initially, it looked terrible. The concept simply wasn't working. Instead of giving up, I started experimenting with the bottles themselves: different colours, different shapes, different arrangements. When the light finally hit them at the right angle, the plastic caught it like glass.</p>
-      <p>Suddenly those bottles became <em>flower petals</em> instead of waste. The entire design transformed. Nothing had fundamentally changed. Only the perspective had.</p>
-    </div>
-
-    <div class="essay-image-trio">
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-10.jpg" alt="Ganpati decoration featuring a Ganesh idol dressed in a hibiscus garland against a lush green canopy of leaves and flowers" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-06.jpg" alt="A branch structure decorated with tiny green lanterns, leaves, and hanging vines forming a glowing canopy" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-07.jpg" alt="A detail from the Ganpati decoration: a small bird tucked amongst white and yellow silk flowers" loading="lazy">
-      </figure>
-    </div>
-
-    <div class="phase-quote">
-      <p>That is the power of pivoting.</p>
-    </div>
-  </section>
-
-  <!-- PHASE 05 · EXECUTE RELENTLESSLY -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+<!-- PHASE 05 · EXECUTE RELENTLESSLY (image left, mature pergola) -->
+<div class="phase-panel reveal">
+  <div class="phase-image-slot">
+    <img src="assets/images/expressions/expressions-2026-06-02.jpg" alt="Pergola along a house exterior with mature vines and creepers grown across the wooden slats" loading="lazy">
+  </div>
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">05</span>
       <span class="phase-label">Execute Relentlessly</span>
     </div>
-    <h2 class="phase-title">Once the direction is clear, thinking gives way to execution.</h2>
+    <h2 class="phase-title">Thinking gives way to execution.</h2>
+    <p>Once the direction is clear, this is where speed matters. Processes become repetitive. Better tools are introduced. Friends and family join in. Tasks are divided. Systems emerge naturally.</p>
+    <p>The objective is simple. <em>Build.</em></p>
+    <p>Every hour invested here converts imagination into something tangible. There is a particular kind of satisfaction in this stage, because every completed piece makes the final picture a little clearer, and every clear piece pulls the next one out faster.</p>
+  </div>
+</div>
 
-    <div class="phase-prose">
-      <p>This is where speed matters.</p>
-      <p>Processes become repetitive. Better tools are introduced. Friends and family join in. Tasks are divided. Systems emerge naturally. The objective is simple.</p>
-      <p><em>Build.</em></p>
-      <p>Every hour invested here converts imagination into something tangible. There is a particular kind of satisfaction in this stage, because every completed piece makes the final picture a little clearer, and every clear piece pulls the next one out faster.</p>
-    </div>
-
-    <div class="essay-image-pair">
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-11.jpg" alt="LED string lights being installed on a wooden panel using a drill and pliers, tools scattered on the floor" loading="lazy">
-      </figure>
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-02.jpg" alt="A pergola along the side of a house, with mature vines and creepers growing across its wooden slats" loading="lazy">
-      </figure>
-    </div>
-  </section>
-
-  <!-- PHASE 06 · REFINEMENT -->
-  <section class="essay-phase">
-    <div class="phase-marker">
+<!-- PHASE 06 · REFINEMENT (text left, image right, single completed detail) -->
+<div class="phase-panel phase-panel--reverse reveal">
+  <div class="phase-image-slot">
+    <img src="assets/images/expressions/expressions-2026-06-13.jpg" alt="Refined Ganpati installation with a Ganesh idol dressed in a red hibiscus garland against a canopy of green leaves and flowers" loading="lazy">
+  </div>
+  <div class="phase-text-slot">
+    <div class="phase-num-marker">
       <span class="phase-num">06</span>
       <span class="phase-label">Refinement</span>
     </div>
-    <h2 class="phase-title">Ironically, the smallest changes often create the biggest impact.</h2>
-
-    <div class="phase-prose">
-      <p>Once everything is assembled, I step back. I squint my eyes. I observe.</p>
-      <p class="short-line">Should this corner be darker?</p>
-      <p class="short-line">Would warmer lighting change the mood?</p>
-      <p class="short-line">Does one colour overpower another?</p>
-      <p class="short-line">Should one element disappear altogether?</p>
-      <p>These are rarely major changes, but collectively they elevate the entire experience. A cooler blue in the sky. A single dimmer bulb. A prop removed from the corner of the frame. The kind of edits nobody would name, but everybody would feel.</p>
-    </div>
-
-    <div class="essay-image essay-image--single">
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-13.jpg" alt="A Ganesh idol on stage with a hand-painted backdrop: a full moon rising over a sunset-orange landscape against a deep blue night sky" loading="lazy">
-        <figcaption>The refinement stage. A moon in the right place, an orange in the right temperature, and the whole mood shifts.</figcaption>
-      </figure>
-    </div>
-
-    <div class="phase-quote">
-      <p>Perfection is not achieved by adding more. It is achieved by knowing what needs just a little adjustment.</p>
-    </div>
-  </section>
-
-  <!-- CLOSING · LOOKING BACK -->
-  <div class="essay-closing">
-    <div class="essay-closing-eyebrow">Looking Back</div>
-    <h2 class="essay-closing-title">Six phases. Almost every project. Almost every time.</h2>
-
-    <div class="phase-prose">
-      <p>After repeating this process across many different projects, I realised that these six phases are not limited to decoration, architecture, or design. They apply to almost everything we create.</p>
-    </div>
-
-    <div class="essay-closing-list">
-      <span>01 · An idea</span>
-      <span>02 · Practicality</span>
-      <span>03 · Working around constraints</span>
-      <span>04 · Pivoting</span>
-      <span>05 · Execution</span>
-      <span>06 · Refinement</span>
-    </div>
-
-    <div class="essay-image essay-image--single">
-      <figure>
-        <img src="assets/images/expressions/expressions-2026-06-12.jpg" alt="A Ganesh idol dressed in ceremonial red and gold, placed beside a paper-and-cardboard model of a two-storey house, with a garlanded coconut and offerings arranged in front" loading="lazy">
-        <figcaption>The meta creation. A festival, a model of a home, and the same instinct running through both.</figcaption>
-      </figure>
-    </div>
-
-    <div class="phase-prose">
-      <p>Every project teaches me something new, but the journey somehow remains familiar. That is what this section is about. Not just showcasing what I have built, but sharing the thinking that went into building it.</p>
-    </div>
-
-    <div class="essay-invitation">
-      <p>I would genuinely love to know how others approach their creative work. Do your projects follow a similar journey, or do you think differently?</p>
-      <p>If you enjoy building things, whether they are physical spaces, art, products, businesses, or experiences, I would love to hear your process.</p>
-      <p>After all, every creator has a method. This one just happens to be mine.</p>
-    </div>
-
-    <div class="essay-signoff">
-      <div class="essay-signoff-name">Samir Deolikar</div>
-      <div class="essay-signoff-meta">June 2026 · San Francisco Bay Area</div>
-    </div>
+    <h2 class="phase-title">The smallest changes often create the biggest impact.</h2>
+    <p>Once everything is assembled, I step back. I squint my eyes. I observe.</p>
+    <p class="short-line">Should this corner be darker?</p>
+    <p class="short-line">Would warmer lighting change the mood?</p>
+    <p class="short-line">Does one colour overpower another?</p>
+    <p class="short-line">Should one element disappear altogether?</p>
+    <p>These are rarely major changes, but collectively they elevate the entire experience. A cooler blue in the sky. A single dimmer bulb. A prop removed from the corner of the frame. The kind of edits nobody would name, but everybody would feel.</p>
+    <div class="phase-quote">Perfection is not achieved by adding more. It is achieved by knowing what needs just a little adjustment.</div>
   </div>
+</div>
 
-</article>
+<!-- REFINEMENT GALLERY: the completed works -->
+<section class="section reveal refinement-header">
+  <div class="container">
+    <span class="eyebrow">The Finished Work</span>
+    <h2>What refinement looks like when it settles.</h2>
+    <p>Completed Ganpati installations from different years. Different themes, same instinct running through each one.</p>
+  </div>
+</section>
+<div class="refinement-gallery refinement-gallery--flush reveal">
+  <div class="tall">
+    <img src="assets/images/expressions/expressions-2026-06-14.jpg" alt="Ganpati installation with hanging planets and stars against a cosmic backdrop" loading="lazy">
+  </div>
+  <div>
+    <img src="assets/images/expressions/expressions-2026-06-11.jpg" alt="Ganpati with a hand-painted sunset moon backdrop, deep blue sky above orange dunes" loading="lazy">
+  </div>
+  <div>
+    <img src="assets/images/expressions/expressions-2026-06-12.jpg" alt="Ganpati installation featuring a hand-built house model as a centrepiece, with offerings" loading="lazy">
+  </div>
+</div>
+
+<!-- CLOSING CALLOUT -->
+<div class="essay-closing-callout reveal">
+  <div class="container--narrow">
+    <span class="eyebrow">Looking Back</span>
+    <h2>Six phases. Almost every project. <em>Almost every time.</em></h2>
+    <p>After repeating this process across many different projects, I realised that these six phases are not limited to decoration, architecture, or design. They apply to almost everything we create.</p>
+    <div class="essay-closing-list">
+      <div>01 · An idea</div>
+      <div>02 · Practicality</div>
+      <div>03 · Working around constraints</div>
+      <div>04 · Pivoting</div>
+      <div>05 · Execution</div>
+      <div>06 · Refinement</div>
+    </div>
+    <p>Every project teaches me something new, but the journey somehow remains familiar. That is what this section is about. Not just showcasing what I have built, but sharing the thinking that went into building it.</p>
+  </div>
+</div>
+
+<!-- INVITATION -->
+<div class="essay-invitation reveal">
+  <div class="essay-invitation-inner">
+    <p>I would genuinely love to know how others approach their creative work. Do your projects follow a similar journey, or do you think differently?</p>
+    <p>If you enjoy building things, whether they are physical spaces, art, products, businesses, or experiences, I would love to hear your process.</p>
+    <p>Every creator has a method. This one just happens to be mine.</p>
+  </div>
+</div>
+
+<!-- SIGN-OFF -->
+<div class="essay-signoff">
+  <div class="essay-signoff-name">Samir Deolikar</div>
+  <div class="essay-signoff-meta">June 2026 · San Francisco Bay Area</div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <span class="footer-copy">© 2025 Samir Deolikar · San Francisco Bay Area</span>
+  <span class="footer-copy">© 2026 Samir Deolikar · San Francisco Bay Area</span>
   <nav class="footer-links">
     <a href="about.html">About</a>
     <a href="blogs.html">Blogs</a>
